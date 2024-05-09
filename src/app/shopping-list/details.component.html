@@ -1,2 +1,128 @@
-<h1>Welcome {{account.firstName}}!</h1>
-        <p>kamo na bahala edit ani</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <style>
+         body {
+            background-color: #28cc72; /* Example background color */
+            height: 100vh;
+            position: relative;
+            /*height: auto; /* Automatically adjusts the height to maintain aspect ratio */
+            
+        }
+        
+        /* CSS for the content */
+        .content {
+            position: absolute; /* Position the content absolutely */
+            top: 25%; /* Position it 20% from the top */
+            left: 50%; /* Position it horizontally at 50% from the left */
+            transform: translate(-50%, -50%); /* Center it precisely */
+            padding: 3rem; /* Adjust padding as needed */
+            text-align: center;
+            color: rgb(17, 16, 16); /* Example text color */
+            z-index: 1; /* Ensure the content appears above the background image */
+        }
+
+        .content h1 {
+            margin-bottom: 1rem;
+            font-size: 40px;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            font-size: 13px;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        
+        /* CSS for the search bar */
+        .search-bar {
+            position: absolute; /* Set the position of the search bar */
+            top: 15%; /* Adjust the top position as needed */
+            right: 1%; /* Position it horizontally at 5% from the right */
+            transform: translateY(-50%); /* Center it vertically */
+            z-index: 2; /* Ensure the search bar appears above the background image */
+        }
+
+        .search-bar input[type="text"] {
+            padding: 5px 10px; /* Adjust padding as needed */
+            width: 200px; /* Adjust width as needed */
+            font-size: 16px;
+            border: 1px solid #ccc; /* Example border */
+            border-radius: 5px; /* Example border radius */
+        }
+
+        .search-bar button {
+            padding: 5px 10px; /* Adjust padding as needed */
+            font-size: 16px;
+            background-color: #4CAF50; /* Example background color */
+            color: white; /* Example text color */
+            border: none;
+            border-radius: 5px; /* Example border radius */
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #45a049; /* Example hover background color */
+        }
+        
+        /* CSS for the add ingredients section */
+        .add-ingredients {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .add-ingredients input[type="text"] {
+            padding: 5px 10px; /* Adjust padding as needed */
+            font-size: 16px;
+            border: 1px solid #ccc; /* Example border */
+            border-radius: 5px; /* Example border radius */
+            margin-bottom: 10px; /* Add margin below the text box */
+        }
+
+        .add-ingredients button {
+            padding: 5px 10px; /* Adjust padding as needed */
+            font-size: 16px;
+            background-color: #4CAF50; /* Example background color */
+            color: white; /* Example text color */
+            border: none;
+            border-radius: 5px; /* Example border radius */
+            cursor: pointer;
+        }
+
+        .add-ingredients button:hover {
+            background-color: #45a049; /* Example hover background color */
+        }
+        
+    </style>
+</head>
+<body>
+
+        <!-- Content above the image -->
+    <div class="content">
+        <h1>Welcome {{account.lastName}}!</h1>
+        <p>Add some ingredients</p>
+        <p>tiwasa inyo</p>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+    </div>
+
+    <!-- Add ingredients -->
+    <div class="add-ingredients">
+        <input type="text" placeholder="Enter ingredient...">
+        <br>
+        <button type="button">Add</button>
+    </div>
+
+</body>
+</html>
