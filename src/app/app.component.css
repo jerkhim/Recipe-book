@@ -1,0 +1,34 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    /*text-align: center;*/
+  }
+  .navbar-nav a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffc107; /* Text color */
+    padding: 5px; /* Add some padding for better appearance */
+  }
+  .navbar a {
+    color: #ffc107; /* Link text color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 10px; /* Add margin between links */
+  }
+  .navbar a:hover {
+    color: #fff; /* Change color on hover */
+  }
+  .recipe-book {
+    margin-right: auto; /* Move the Recipe Book link to the left */
+   
+  }
+  .recipe-book span {
+    font-family: 'Comic Sans MS', cursive;
+  
+    font-size: 20px;
+  }
+  .recipe-book a{
+    font-family: 'Comic Sans MS', cursive;
+
+    font-size: 20px;
+  }

@@ -4,29 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipe Book</title>
+  <link rel="stylesheet" href="app.component.css">
   <style>
-    .app-container {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-    }
-    .navbar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #343a40; /* Dark background color */
-      color: #ffc107; /* Text color */
-      border-radius: 5px; /* Rounded corners */
-      padding: 10px; /* Add some padding for better appearance */
-    }
-    .navbar a {
-      color: #ffc107; /* Link text color */
-      text-decoration: none; /* Remove underline */
-      margin: 0 10px; /* Add margin between links */
-    }
-    .navbar a:hover {
-      color: #fff; /* Change color on hover */
-    }
+
     
   </style>
 </head>
@@ -35,13 +15,14 @@
   <div class="app-container" [ngClass]="{ 'bg-light': account }">
     <!-- main nav -->
     <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="account">
-      <a style="color: yellow; font-size: 20px; text-align: left; left: 59%;"> RECIPE <span style="color: red;">BOOK</span></a>
-  
+      <div class="recipe-book">
+      <a style="color: yellow; "> Recipe <span style="color: red;">Book</span></a>
+    </div>
       <div class="navbar-nav">
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home</a>
           <a routerLink="/recipes" routerLinkActive="active" class="nav-item nav-link">Recipe</a>
-          <a routerLink="/shopping-list" routerLinkActive="active" class="nav-item nav-link">Shopping-list</a>
-          <a routerLink="/contactus" routerLinkActive="active" class="nav-item nav-link">Contactus</a>
+          <a routerLink="/shopping-list" routerLinkActive="active" class="nav-item nav-link">Shopping  List</a>
+          <a routerLink="/contactus" routerLinkActive="active" class="nav-item nav-link">Contact</a>
           <a routerLink="/profile" routerLinkActive="active" class="nav-item nav-link">Profile</a>
           <a *ngIf="account.role === Role.Admin" routerLink="/admin" routerLinkActive="active" class="nav-item nav-link">Admin</a>
           <a (click)="logout()" class="nav-item nav-link">Logout</a>  
