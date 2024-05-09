@@ -7,11 +7,10 @@
       <div class="navbar-nav ml-auto">
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home</a>
           <a routerLink="/recipes" routerLinkActive="active" class="nav-item nav-link">Recipe</a>
-          <a routerLink="/Contactus" routerLinkActive="active" class="nav-item nav-link">Contactus</a>
+          <a routerLink="/shopping-list" routerLinkActive="active" class="nav-item nav-link">Shopping-list</a>
+          <a routerLink="/contactus" routerLinkActive="active" class="nav-item nav-link">Contactus</a>
           <a routerLink="/profile" routerLinkActive="active" class="nav-item nav-link">Profile</a>
           <a *ngIf="account.role === Role.Admin" routerLink="/admin" routerLinkActive="active" class="nav-item nav-link">Admin</a>
-         
-
           <a (click)="logout()" class="nav-item nav-link">Logout</a>  
       </div>     
   </nav>

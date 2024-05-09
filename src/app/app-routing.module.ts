@@ -5,17 +5,22 @@ import { HomeComponent } from './home';
 import { AuthGuard } from './_helpers';
 import { Role } from './_models';
 
+
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 const adminModule = () => import('./admin/admin.module').then(x => x.AdminModule);
 const profileModule = () => import('./profile/profile.module').then(x => x.ProfileModule);
 const RecipeModule = () => import('./recipes/recipe.module').then(x => x.RecipeModule);
+const ShoppingModule = () => import('./shopping-list/shoppinglist.module').then(x => x.ShoppingModule);
+const ContactModule = () => import('./contactus/contact.module').then(x => x.ContactModule);
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
-    { path: 'Recipes', loadChildren: RecipeModule, canActivate: [AuthGuard] },
+    { path: 'recipes', loadChildren: RecipeModule, canActivate: [AuthGuard] },
+    { path: 'shopping-list', loadChildren: ShoppingModule, canActivate: [AuthGuard] },
+    { path: 'contactus', loadChildren: ShoppingModule, canActivate: [AuthGuard] },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
