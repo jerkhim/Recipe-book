@@ -5,10 +5,12 @@
       <a style="color: yellow; font-size: 20px;">RECIPE <span style="color: red;">BOOK</span></a>
   
       <div class="navbar-nav ml-auto">
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Recipes</a>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home</a>
+          <a routerLink="/recipes" routerLinkActive="active" class="nav-item nav-link">Recipe</a>
+          <a routerLink="/Contactus" routerLinkActive="active" class="nav-item nav-link">Contactus</a>
           <a routerLink="/profile" routerLinkActive="active" class="nav-item nav-link">Profile</a>
           <a *ngIf="account.role === Role.Admin" routerLink="/admin" routerLinkActive="active" class="nav-item nav-link">Admin</a>
-          <a routerLink="/contact-us" class="nav-item nav-link">ContactUS</a>
+         
 
           <a (click)="logout()" class="nav-item nav-link">Logout</a>  
       </div>     

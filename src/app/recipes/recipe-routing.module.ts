@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { DetailsComponent } from './details.component';
 
+
 const routes: Routes = [
     {
         path: '', component: LayoutComponent,
         children: [
             { path: '', component: DetailsComponent },
+           
         ]
     }
 ];
@@ -17,4 +19,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class RecipeRoutingModule{ }
+export class RecipeRoutingModule { }

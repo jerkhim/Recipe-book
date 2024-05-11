@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { RecipeRoutingModule } from './recipe-routing.module';
 import { LayoutComponent } from './layout.component';
-import { DetailsComponent } from './details.component';
+
 
 @NgModule({
     imports: [
@@ -15,7 +15,7 @@ import { DetailsComponent } from './details.component';
     ],
     declarations: [
         LayoutComponent,
-     
+        
     ]
 })
-export class recipeModule { }
+export class RecipeModule { }
