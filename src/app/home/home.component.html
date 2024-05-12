@@ -46,32 +46,52 @@
         }
 
         .chicken-container h1 {
-        font-size: 48px;
-        margin-bottom: 20px;
-        font-family: 'Brush Script MT', cursive; /* Using Brush Script MT as the primary font */
-        text-transform: uppercase;
-        color: #333; /* Darker color for better readability */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding a subtle text shadow for depth */
-        letter-spacing: 2px; /* Increasing letter spacing for better legibility */
-        line-height: 1.2; /* Adjusting line height for better readability */
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive; /* Using Brush Script MT as the primary font */
+            text-transform: uppercase;
+            color: #333; /* Darker color for better readability */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding a subtle text shadow for depth */
+            letter-spacing: 2px; /* Increasing letter spacing for better legibility */
+            line-height: 1.2; /* Adjusting line height for better readability */
         }
-
 
         .chicken-container p {
             font-size: 18px;
             font-family: 'Comic Sans MS', cursive; /* Using Comic Sans MS for paragraphs */
         }
 
-        .image-container {
-            max-width: 100%; /* Ensures the image doesn't exceed its parent's width */
-            height: auto; /* Automatically adjusts the height to maintain aspect ratio */
-            text-align: center; /* Centers the image horizontally */
+        /* CSS for the search bar */
+        .search-bar {
+            position: absolute; /* Set the position of the search bar */
+            top: 15%; /* Adjust the top position as needed */
+            right: 1%; /* Position it horizontally at 5% from the right */
+            transform: translateY(-50%); /* Center it vertically */
+            z-index: 2; /* Ensure the search bar appears above the background image */
         }
 
-        .image-container img {
-            max-width: 100%; /* Makes the image responsive */
-            height: auto; /* Allows the image to scale proportionally */
+        .search-bar input[type="text"] {
+            padding: 5px 10px; /* Adjust padding as needed */
+            width: 200px; /* Adjust width as needed */
+            font-size: 16px;
+            border: 1px solid #ccc; /* Example border */
+            border-radius: 5px; /* Example border radius */
         }
+
+        .search-bar button {
+            padding: 5px 10px; /* Adjust padding as needed */
+            font-size: 16px;
+            background-color: #4CAF50; /* Example background color */
+            color: white; /* Example text color */
+            border: none;
+            border-radius: 5px; /* Example border radius */
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #45a049; /* Example hover background color */
+        }
+        
     </style>
 </head>
 <body>
@@ -86,6 +106,12 @@
             <h1>Welcome {{account.firstName}}!</h1>
             <h4>Find Some Interesting Recipe</h4>
         </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
     </div>
 
     <!-- Chicken dish content -->
