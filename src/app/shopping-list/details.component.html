@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping List</title>
     <style>
-         body {
-            background-color: #28cc72; /* Example background color */
+        body {
+            background-color: #f5f4f4; /* Example background color */
             height: 100vh;
             position: relative;
             /*height: auto; /* Automatically adjusts the height to maintain aspect ratio */
@@ -89,7 +89,7 @@
         .add-ingredients button {
             padding: 5px 10px; /* Adjust padding as needed */
             font-size: 16px;
-            background-color: #4CAF50; /* Example background color */
+            background-color: #5e90c9; /* Example background color */
             color: white; /* Example text color */
             border: none;
             border-radius: 5px; /* Example border radius */
@@ -99,7 +99,27 @@
         .add-ingredients button:hover {
             background-color: #45a049; /* Example hover background color */
         }
-        
+
+        /* CSS for the ingredient list */
+        .ingredient-list {
+            position: absolute;
+            top: 55%;
+            font-family: 'Comic Sans MS', cursive;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .ingredient-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ingredient-list li {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -110,18 +130,31 @@
         <p>Add some ingredients</p>
     </div>
 
-    <!-- Search bar -->
-    <div class="search-bar">
-        <input type="text" placeholder="Search...">
-        <button type="submit">Search</button>
-    </div>
 
     <!-- Add ingredients -->
     <div class="add-ingredients">
-        <input type="text" placeholder="Enter ingredient...">
-        <br>
-        <button type="button">Add</button>
+        <input id="ingredient-input" type="text" placeholder="Enter ingredient..."><br>
+        <button id="add-button" type="button">Add</button>
     </div>
 
+    <!-- Display added ingredients -->
+    <div class="ingredient-list">
+        <h2>Added Ingredients</h2>
+        <ul id="ingredient-ul"></ul>
+    </div>
+
+    <script>
+        // JavaScript to handle adding ingredients
+        document.getElementById('add-button').addEventListener('click', function() {
+            var ingredient = document.getElementById('ingredient-input').value;
+            if (ingredient.trim() !== '') {
+                var ul = document.getElementById('ingredient-ul');
+                var li = document.createElement('li');
+                li.textContent = ingredient;
+                ul.appendChild(li);
+                document.getElementById('ingredient-input').value = '';
+            }
+        });
+    </script>
 </body>
 </html>
