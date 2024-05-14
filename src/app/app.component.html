@@ -31,10 +31,11 @@
   </style>
 </head>
 <body>
+  
   <div class="app-container" [ngClass]="{ 'bg-light': account }">
     <!-- main nav -->
     <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="account">
-      <a style="color: yellow; font-size: 20px; text-align: left; left: 59%;">RECIPE <span style="color: red;">BOOK</span></a>
+      <a style="color: yellow; font-size: 20px; text-align: left; left: 59%;"> RECIPE <span style="color: red;">BOOK</span></a>
   
       <div class="navbar-nav">
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home</a>

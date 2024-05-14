@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Adjust as needed for spacing */
+}
+
+.recipe img {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+    margin-right: 10px; /* Adjust as needed for spacing */
+}
