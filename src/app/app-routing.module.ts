@@ -20,7 +20,7 @@ const routes: Routes = [
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
     { path: 'recipes', loadChildren: RecipeModule, canActivate: [AuthGuard] },
     { path: 'shopping-list', loadChildren: ShoppingModule, canActivate: [AuthGuard] },
-    { path: 'contactus', loadChildren: ShoppingModule, canActivate: [AuthGuard] },
+    { path: 'contactus', loadChildren: ContactModule, canActivate: [AuthGuard] },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
