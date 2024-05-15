@@ -1,22 +1,15 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
-import { NewRecipeRoutingModule } from './new-recipe-routing,module';
-
-import { DetailsComponent } from './details.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { NewRecipeComponent } from './new-recipe.component';
+import { NewRecipeRoutingModule } from './new-recipe-routing.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        NewRecipeRoutingModule
-    ],
-    declarations: [
-      
-        DetailsComponent,
-      
-    ]
+  declarations: [NewRecipeComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NewRecipeRoutingModule
+  ]
 })
 export class NewRecipeModule { }

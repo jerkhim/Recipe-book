@@ -23,25 +23,27 @@ body h1 {
 
    /* CSS for New Recipe Button */
    .new-recipe-button {
-    /* Add your button styles here */
-    background-color: rgb(21, 190, 72);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    display: inline-block;
     padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-align: center;
+    text-decoration: none;
     font-size: 16px;
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .new-recipe-button:hover {
-    background-color: #0056b3;
+    background-color: #45a049; /* Darker Green */
 }
 
-/* Hover effect */
-.new-recipe-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+.new-recipe-button:active {
+    background-color: #3e8e41; /* Even Darker Green */
 }
+
 .container {
     display: flex;
     flex-wrap: wrap;
