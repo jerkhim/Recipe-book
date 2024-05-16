@@ -12,7 +12,7 @@ const RecipeModule = () => import('./recipes/recipe.module').then(x => x.RecipeM
 const ShoppingModule = () => import('./shopping-list/shoppinglist.module').then(x => x.ShoppingModule);
 const ContactModule = () => import('./contactus/contact.module').then(x => x.ContactModule);
 const NewRecipeModule = () => import('./new-recipe/new-recipe.module').then(x => x.NewRecipeModule); // Import NewRecipeModule
-
+const ViewRecipeModule = () => import('./view-recipe/view-recipe.module').then(x => x.ViewRecipeModule);
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
@@ -22,7 +22,7 @@ const routes: Routes = [
     { path: 'shopping-list', loadChildren: ShoppingModule, canActivate: [AuthGuard] },
     { path: 'contactus', loadChildren: ContactModule, canActivate: [AuthGuard] },
     { path: 'new-recipe', loadChildren: NewRecipeModule, canActivate: [AuthGuard] }, // Add route for New Recipe
-
+    { path: 'view-recipe', loadChildren: ViewRecipeModule, canActivate: [AuthGuard] },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
