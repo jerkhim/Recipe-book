@@ -14,14 +14,7 @@
         <h2>Shopping List</h2>
         <div style="display: flex; margin-bottom: 10px;"> <!-- Added a flex container -->
             <input type="text" id="ingredient-input" placeholder="Enter ingredient">
-            <select id="amount-select">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <!-- Add more options as needed -->
-            </select>
+            <input type="number" id="amount-input" min="-100" value="0"> <!-- Changed to number input -->
         </div>
         <button id="add-btn">Add</button> <!-- Moved the button below -->
         <ul id="shopping-list"></ul>
@@ -30,13 +23,13 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const ingredientInput = document.getElementById("ingredient-input");
-            const amountSelect = document.getElementById("amount-select");
+            const amountInput = document.getElementById("amount-input");
             const addButton = document.getElementById("add-btn");
             const shoppingList = document.getElementById("shopping-list");
 
             addButton.addEventListener("click", function() {
                 const ingredient = ingredientInput.value.trim();
-                const amount = amountSelect.value.trim();
+                const amount = amountInput.value.trim(); // Using amountInput instead
 
                 if (ingredient !== "") {
                     const listItem = document.createElement("li");
@@ -45,6 +38,7 @@
                     shoppingList.appendChild(listItem);
 
                     ingredientInput.value = "";
+                    amountInput.value = 0; // Reset amount input to 1 after adding
                 } else {
                     alert("Please enter the ingredient.");
                 }

@@ -1,32 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us</title>
-  <link rel="stylesheet" href="contact.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">  <!--Include external CSS file -->
 </head>
 <body>
-  <div class="container">
-    <h1>Get in Touch</h1>
-    
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required>
+  <div class="contact-section">
+    <div class="max-width-container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-info">
+        <div class="info-item">
+          <h3 class="info-title">Address</h3>
+          <div class="info-detail">
+            <img src="https://placehold.co/20" alt="Address Icon" class="info-icon">
+            <p>467 Sugar Camp Road, Owatonna, Minnesota, 55060</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <h3 class="info-title">Phone</h3>
+          <div class="info-detail">
+            <img src="https://placehold.co/20" alt="Phone Icon" class="info-icon">
+            <p>+1-507-475-6948</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <h3 class="info-title">Email</h3>
+          <div class="info-detail">
+            <img src="https://placehold.co/20" alt="Email Icon" class="info-icon">
+            <p>example-mail.net</p>
+          </div>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required>
+      <div class="contact-form-container">
+        <h3 class="form-title">Send Message</h3>
+        <form action="#" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Full Name">
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" rows="4" class="form-input" placeholder="Type your Message..."></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send</button>
+        </form>
       </div>
-
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-
-      <button type="submit">Submit</button>
-
+    </div>
   </div>
+  
 </body>
 </html>
