@@ -1,92 +1,86 @@
-/* General Styles */
-.contact-section {
-  background-color: #374151;
-  color: white;
-  padding: 30px;
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
-
-.max-width-container {
-  max-width: 1100px;
+.contact {
+  min-height: 100vh;
+  background-color: #e8f0fe;
+  padding: 50px;
+  text-align: center;
+}
+.container {
+  max-width: 800px;
   margin: 0 auto;
 }
-
-.section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
+.container h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #333;
 }
-
-/* Contact Info Styles */
-.contact-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
-
-.info-item {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.info-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.info-detail {
-  display: flex;
-  align-items: center;
-}
-
-.info-icon {
-  margin-right: 10px;
-}
-
-/* Contact Form Styles */
-.contact-form-container {
-  width: 100%;
-}
-
-.form-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
 .contact-form {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
+  text-align: left;
 }
-
+.contact-form h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 .form-group {
   margin-bottom: 20px;
 }
-
-.form-label {
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.form-input {
+input, textarea{
   width: 100%;
-  padding: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-}
-
-.submit-button {
-  background-color: #3b82f6;
-  color: white;
-  font-weight: bold;
-  padding: 10px 20px;
+  padding: 12px;
+  border-radius: 8px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #f8f9fa;
+  color: #333;
 }
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px #bbb;
+}
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+button:hover{
+  background-color: #45a049;
+}
+.contact-info{
+  text-align: left;
+  margin-right: 10px;
 
-.submit-button:hover {
-  background-color: #2563eb;
+}
+.contact-info h3{
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+.contact-info p{
+  margin-bottom: 10px;
+  color: #555;
+}
+.contact-info i{
+  color: #4caf50;
+  margin-right: 10px;
+}
+@media screen and (max-width:768px){
+  .container{
+    padding: 20px;
+  }
+  .contact-wrapper{
+    grid-template-columns: 1fr;
+  }
 }
