@@ -23,18 +23,19 @@ body h1 {
 
    /* CSS for New Recipe Button */
    .new-recipe-button {
-    background-color: #4CAF50; /* Green background */
-    border: none; /* No border */
-    color: white; /* White text */
-    padding: 15px 20px; /* Padding */
-    text-align: center; /* Center text */
-    text-decoration: none; /* No underline */
-    display: inline-block; /* Display as inline-block */
-    font-size: 16px; /* Font size */
-    margin: 10px 0; /* Margin top and bottom */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.3s; /* Smooth transition for background color */
+    /* Add your button styles here */
+    background-color: rgb(21, 190, 72);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-recipe-button:hover {
+    background-color: #0056b3;
 }
 
 /* Hover effect */

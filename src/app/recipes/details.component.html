@@ -14,7 +14,20 @@
 <body>
     
         
-        <button class="new-recipe-button">New Recipe</button> <!-- New Recipe Button -->
+    <button class="new-recipe-button">New Recipe</button>
+
+    <script>
+        // Get the button element
+        var newRecipeButton = document.querySelector('.new-recipe-button');
+
+        // Add a click event listener to the button
+        newRecipeButton.addEventListener('click', function() {
+            // Here you can define what happens when the button is clicked
+            alert('You clicked the New Recipe button!');
+            // You can replace the alert with any other action you want
+        });
+    </script>
+    
         <h1>All Recipes</h1>
     
         
