@@ -1,0 +1,16 @@
+<!-- view-recipe.component.html -->
+
+<div class="recipe-container">
+    <img src="path_to_image.jpg" alt="Recipe Image">
+    <div class="recipe-details">
+      <h2>{{ recipeDetails.title }}</h2>
+      <p>{{ recipeDetails.description }}</p>
+      <p>Price: {{ recipeDetails.price }}</p>
+    </div>
+    <div class="recipe-actions">
+      <button (click)="addToShoppingList()">Add to Shopping List</button>
+      <button (click)="editRecipe()">Edit</button>
+      <button (click)="deleteRecipe()">Delete</button>
+    </div>
+  </div>
+  
