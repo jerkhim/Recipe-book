@@ -1,46 +1,109 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
 }
-#list-container {
-    margin: 20px auto;
-    max-width: 400px;
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #9c27b0,#31d5eb)
+}
+.container
+{
+    position: relative;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.container .box
+{
+    position: relative;
+    width: 400px;
+    background: #fff;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 15px 15px 15px rgba(0,0,0,0.1);
 }
-#ingredient-input {
-    width: calc(70% - 5px); /* Adjusted width */
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+.container .box h2
+{
+    font-size: 1.7em;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
 }
-#amount-input {
-    width: calc(30% - 5px); /* Adjusted width */
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    visibility: visible; /* Making the number input always visible */
+.container .box #grocery
+{
+    position: relative;
+    width: 100%;
+    display: flex;
 }
-#add-btn {
-    width: 100%; /* Adjusted width */
-    padding: 8px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 3px;
+.container .box #grocery input
+{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    outline: none;
+}
+.container .box #grocery button
+{
+    background-color: #4bae4f;
+    color: #fff;
+    min-width: 100px;
+    font-weight: 500;
+    border: 1px solid #333;
+    cursor: pointer;
+    outline: none;
+}
+.container ol
+{
+    position: relative;
+    padding: 10px 20px 10px 40px;
+    width: 100%;
+    min-height: 398px;
+    background: #fff repeating-linear-gradient(transparent 0%, transparent 99%, #000 99%, #000 100%);
+    background-size: 50px 50px;
+    box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
+}
+.container ol li
+{
+    position: relative;
+    font-size: 1.5em;
+    height: 50px;
+}
+.container ol li .remove
+{
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    background: url"assets/images/minus.png";
+    background: #f00;
+    border-radius: 50%;
     cursor: pointer;
 }
-#shopping-list {
-    list-style-type: none;
-    padding: 0;
+.container ol li.done p
+{
+    text-decoration: line-through;
+    color: rgba(0,0,0,0.2);
 }
-.list-item {
-    margin-bottom: 5px;
-    padding: 8px;
-    background-color: #f2f2f2;
-    border-radius: 3px;
+.container ol li.done p:after
+{
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
 }
