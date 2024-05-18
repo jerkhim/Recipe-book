@@ -15,15 +15,43 @@
     <a routerLink="/new-recipe" routerLinkActive="active" class="new-recipe-button">New Recipe</a>
 
     <h1>All Recipes</h1>
-
+  
     <div class="container">
         <div class="recipe" *ngFor="let recipe of recipes; let i = index">
             <img [src]="recipe.image" [alt]="recipe.name"> <!-- Dynamic image rendering -->
             <p>{{ recipe.name }}</p> <!-- Recipe name -->
-            <button routerLink="/view-recipe" routerLinkActive="active" class="view-recipe-button">View Recipe</button>
+            <button class="view-recipe-button" (click)="viewRecipe(recipe)">View Recipe</button>
             <!-- View Recipe button -->
         </div>
     </div>
+    
+    <!-- Modal -->
+    <div class="modal" *ngIf="selectedRecipe">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <img [src]="selectedRecipe.image" [alt]="selectedRecipe.name">
+            <h2>{{ selectedRecipe.name }}</h2>
+            <p>{{ selectedRecipe.description }}</p>
+
+            
+            
+            <button class="shopping-list-button" (click)="addToShoppingList(selectedRecipe)">Move to List</button>
+            
+            
+            <div class="shopping-list-container">
+                <h2>Shopping List</h2>
+                <ul>
+                    <li *ngFor="let item of shoppingList; let i = index">
+                        {{ item }}
+                        <button (click)="addToShoppingList()">Add</button>
+                         <button (click)="deleteFromShoppingList(i)">Delete</button>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
 

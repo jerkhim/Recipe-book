@@ -9,3 +9,7 @@ export class Account {
     role: Role;
     jwtToken?: string;
 }
+export class items {
+    id: string;
+    name: string;
+}
