@@ -1,52 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping List</title>
-    <link rel="stylesheet" type="text/css" href="shopping.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping List</title>
+  <link rel="stylesheet" href="shopping.css">
 </head>
 <body>
+  <section class="shopping-list">
     <div class="container">
-        <div class="box">
-            <h2>Shopping List</h2>
-            <form id="grocery">
-                <input id="writeList" type="text" placeholder="Write Grocery Item..." required>
-                <button>Add Item</button>
-            </form>
-        </div>
-        <ol></ol>
-     </div>
-     <script>
-        let grocery = document.getElementById('grocery');
-        grocery.addEventListener('submit', addItem);
-        function addItem(e){
-            e.preventDefault();
-            let data = this.elements.writeList.value.addItem;
-            let list = document.querySelector('ol');
-            let item = document.createElement('li');
-            let text = document.createElement('p');
-
-            text,textContent = data;
-            this.elements.writeList.value = "";
-            item.append(text);
-            list.append(item);
-            
-            let rmvBtn = document.createElement('span');
-            rmvBtn.classList.add('remove');
-            item.append(rmvBtn);
-            rmvBtn.addEventListener('click', deleteItem);
-            item.addEventListener('click' , doneItem);
-        }
-
-        function deleteItem(e){
-            this.parentElement.remove();
-        }
-
-        function doneItem(e){
-            this.classList.toggle('done');
-        }
-     </script>
+      <h2>Shopping List</h2>
+      <div class="form-container">
+        <form id="shoppingForm">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount *</label>
+            <input type="number" id="amount" name="amount" required>
+          </div>
+          <div class="form-buttons">
+            <button type="submit" id="addButton" class="btn btn-add">Add</button>
+            <button type="button" id="clearButton" class="btn btn-clear">Clear</button>
+          </div>
+        </form>
+      </div>
+      <ul id="itemList" class="item-list">
+        <li>Tomatoes (10)</li>
+        <li>Cucumber (5)</li>
+      </ul>
+    </div>
+  </section>
+  <script src="script.js"></script>
 </body>
 </html>

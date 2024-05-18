@@ -7,6 +7,7 @@ body {
     /* Specify the path to your image */
     background-size: cover; /* Cover the entire background */
     background-repeat: no-repeat;
+    position: absolute;
 }
 
 body h1 {
@@ -88,6 +89,7 @@ body h1 {
 .view-recipe-button:hover {
     background-color: #45a049;
 }
+<<<<<<< HEAD
 
 .container {
     display: flex;
@@ -216,3 +218,37 @@ body h1 {
 .shopping-list-container li button {
     margin-left: 1px; /* Adjust the margin between buttons */
 }
+=======
+/* CSS for the search bar */
+.search-bar {
+    display: inline-block;
+    position: absolute; /* Set the position of the search bar */
+    top: 3%; /* Adjust the top position as needed */
+    right: 1%; /* Position it horizontally at 5% from the right */
+    transform: translateY(-50%); /* Center it vertically */
+    z-index: 2; /* Ensure the search bar appears above the background image */
+    border: none;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px 10px; /* Adjust padding as needed */
+    width: 200px; /* Adjust width as needed */
+    font-size: 16px;
+    border: 1px solid #ccc; /* Example border */
+    border-radius: 5px; /* Example border radius */
+}
+
+.search-bar button {
+    padding: 5px 10px; /* Adjust padding as needed */
+    font-size: 16px;
+    background-color: #4CAF50; /* Example background color */
+    color: white; /* Example text color */
+    border: none;
+    border-radius: 5px; /* Example border radius */
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #45a049; /* Example hover background color */
+}
+>>>>>>> 29269056054045bb02069836a93b2e457847700d

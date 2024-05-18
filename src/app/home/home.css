@@ -62,33 +62,3 @@
     font-family: 'Comic Sans MS', cursive; /* Using Comic Sans MS for paragraphs */
 }
 
-/* CSS for the search bar */
-.search-bar {
-    position: absolute; /* Set the position of the search bar */
-    top: 15%; /* Adjust the top position as needed */
-    right: 1%; /* Position it horizontally at 5% from the right */
-    transform: translateY(-50%); /* Center it vertically */
-    z-index: 2; /* Ensure the search bar appears above the background image */
-}
-
-.search-bar input[type="text"] {
-    padding: 5px 10px; /* Adjust padding as needed */
-    width: 200px; /* Adjust width as needed */
-    font-size: 16px;
-    border: 1px solid #ccc; /* Example border */
-    border-radius: 5px; /* Example border radius */
-}
-
-.search-bar button {
-    padding: 5px 10px; /* Adjust padding as needed */
-    font-size: 16px;
-    background-color: #4CAF50; /* Example background color */
-    color: white; /* Example text color */
-    border: none;
-    border-radius: 5px; /* Example border radius */
-    cursor: pointer;
-}
-
-.search-bar button:hover {
-    background-color: #45a049; /* Example hover background color */
-}

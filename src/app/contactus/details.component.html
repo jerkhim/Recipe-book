@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Contact Us</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="contact.css">
 </head>
@@ -14,27 +14,28 @@
         <div class="contact-wrapper">
           <div class="contact-form">
             <h3>Send us a message</h3>
-            <form action="">
+            <form id="contactForm">
               <div class="form-group">
-                <input type="text" name="name" placeholder="Your Name">
+                <input type="text" name="name" placeholder="Your Name" required>
               </div>
               <div class="form-group">
-                <input type="text" name="email" placeholder="Your email">
+                <input type="email" name="email" placeholder="Your email" required>
               </div>
               <div class="form-group">
-                <textarea name="message" placeholder="Your Message"></textarea>
+                <textarea name="message" placeholder="Your Message" required></textarea>
               </div>
               <button type="submit">Send Message</button>
             </form>
           </div>
           <div class="contact-info">
             <h3>Contact Information</h3>
-            <p><i class="fas fa-phone"></i>+1 234 567 89</p>
-            <p><i class="fas fa-envelope"></i>infoexample.com</p>
-            <p><i class="fas fa-map-marker-alt"></i>123 street, City, Country</p>
+            <p><i class="fas fa-phone"></i> +1 234 567 89</p>
+            <p><i class="fas fa-envelope"></i> info&#64;book.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> 123 street, City, Country</p>
           </div>
         </div>
       </div>
   </section>
+  <script src="script.js"></script>
 </body>
 </html>
