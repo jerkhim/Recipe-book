@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({ templateUrl: 'details.component.html' })
 export class DetailsComponent {
 
  
     constructor(private router: Router) {}
+
     addToShoppingListMessage: string = ''; 
     shoppingList: string[] = [];
     selectedRecipe: any;
-
+    addedItems: string[] = [];
+ 
     recipes = [
         {  name: 'Adobo', image: 'assets/images/adobo.png', description: 'Adobo is a popular Filipino dish known for its savory and tangy flavors. It typically consists of meat (such as chicken, pork, or beef) marinated in vinegar, soy sauce, garlic, and spices, then simmered until tender. The cooking process allows the meat to absorb the rich flavors of the marinade, resulting in a deliciously tender and flavorful dish. Adobo is often served with steamed rice and is a staple in Filipino cuisine, enjoyed by many for its comforting and hearty taste.' },
         {  name: 'siken', image: 'assets/images/chicken.png', description: ' Chicken is a versatile and widely consumed poultry meat known for its tender texture and mild flavor. It is used in various cuisines worldwide and can be cooked in numerous ways, including roasting, grilling, frying, and stewing. Rich in protein and low in fat, chicken is a nutritious choice enjoyed in dishes ranging from classic comfort foods to gourmet specialties.'},
@@ -22,14 +24,21 @@ export class DetailsComponent {
     ];
 
    
+    
     addToShoppingList(recipe: any) {
-        this.shoppingList.push(recipe.name);
-
-    }
+    // Assuming you have a 'recipe' object passed to this function
+    this.shoppingList.push(recipe.name);
+    this.addedItems.push(recipe.name); // Add the item to the addedItems array
+}
     deleteFromShoppingList(index: number) {
+        const deletedItem = this.shoppingList[index];
         this.shoppingList.splice(index, 1);
+        const addedItemIndex = this.addedItems.indexOf(deletedItem);
+        if (addedItemIndex !== -1) {
+            this.addedItems.splice(addedItemIndex, 1);
+       
     }
-
+    }
     viewRecipe(recipe: any) {
         this.selectedRecipe = recipe;
         // Show modal
@@ -42,5 +51,28 @@ export class DetailsComponent {
         document.querySelector('.modal').classList.remove('show');
     }
 
-   
+    
 }
+
+export class YourComponent {
+    shoppingList: string[] = [];
+    constructor(private http: HttpClient) {}
+    
+
+    addToShoppingList(selectedRecipe: any) {
+        // Assuming selectedRecipe contains the data to be added to the database
+        // Make sure to replace 'http://your-api-endpoint/add-item' with your actual API endpoint
+        this.http.post<any>('http://your-api-endpoint/add-item', selectedRecipe)
+            .subscribe(
+                (response) => {
+                    console.log('Item added successfully:', response);
+                    // Optionally, you can update the shoppingList array in your component
+                    this.shoppingList.push(selectedRecipe); // Assuming you want to update the shoppingList array
+                },
+                (error) => {
+                    console.error('Error adding item:', error);
+                }
+            );
+    }
+}
+

@@ -38,12 +38,11 @@ body h1 {
 }
 
 .new-recipe-button:hover {
-    background-color: #45a049; /* Darker Green */
+    width: 40px;
+    text-align: center;
+    box-sizing: content-box;
 }
 
-.new-recipe-button:active {
-    background-color: #3e8e41; /* Even Darker Green */
-}
 
 .container {
     display: flex;
@@ -53,47 +52,55 @@ body h1 {
 }
 
 .recipe {
-    text-align: center;
-    margin-bottom: 20px;
-    width: calc(33.33% - 20px); /* Adjust based on number of recipes per row */
-    max-width: 300px; /* Set maximum width for better responsiveness */
+    margin: 2.4rem 0;
 }
 
 .recipe img {
-    max-width: 100%;
-    height: 200px; /* Fixed height for all images */
-    object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+    width: 100%;
+    display: block;
 }
 
 .recipe p {
-    margin-top: 10px; /* Add margin between image and paragraph */
-    font-family: 'Brush Script MT', 'cursive';
-    font-size: 30px;
+    padding: 1.5rem 0.5rem;
 }
 
 .view-recipe-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px; /* Add margin between paragraph and button */
+    color: #af1414;
+    background: var(--tenne-tawny);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    display: block;
+    width: 175px;
+    margin: 1rem auto;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
 }
 
 /* Optional: Hover effect for button */
 .view-recipe-button:hover {
-    background-color: #45a049;
+    background: var(--tenne-tawny-dark);
 }
-<<<<<<< HEAD
+
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    margin: 2rem 0;;
 }
 
 .recipe {
@@ -107,9 +114,6 @@ body h1 {
     height: auto;
 }
 
-.view-recipe-button {
-    margin-top: 10px;
-}
 
 /* Modal styles */
 .modal {
@@ -218,7 +222,7 @@ body h1 {
 .shopping-list-container li button {
     margin-left: 1px; /* Adjust the margin between buttons */
 }
-=======
+
 /* CSS for the search bar */
 .search-bar {
     display: inline-block;
@@ -251,4 +255,4 @@ body h1 {
 .search-bar button:hover {
     background-color: #45a049; /* Example hover background color */
 }
->>>>>>> 29269056054045bb02069836a93b2e457847700d
+

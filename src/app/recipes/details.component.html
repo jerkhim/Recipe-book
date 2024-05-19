@@ -19,13 +19,13 @@
     <div class="container">
         <div class="recipe" *ngFor="let recipe of recipes; let i = index">
             <img [src]="recipe.image" [alt]="recipe.name"> <!-- Dynamic image rendering -->
-            <p>{{ recipe.name }}</p> <!-- Recipe name -->
+            <h2>{{ recipe.name }}</h2> <!-- Recipe name -->
             <button class="view-recipe-button" (click)="viewRecipe(recipe)">View Recipe</button>
             <!-- View Recipe button -->
         </div>
     </div>
     
-<<<<<<< HEAD
+
     <!-- Modal -->
     <div class="modal" *ngIf="selectedRecipe">
         <div class="modal-content">
@@ -34,32 +34,29 @@
             <h2>{{ selectedRecipe.name }}</h2>
             <p>{{ selectedRecipe.description }}</p>
 
+   
+    <button class="shopping-list-button" (click)="addToShoppingList(selectedRecipe)">ADD</button>
             
-            
-            <button class="shopping-list-button" (click)="addToShoppingList(selectedRecipe)">Move to List</button>
-            
-            
-            <div class="shopping-list-container">
-                <h2>Shopping List</h2>
-                <ul>
-                    <li *ngFor="let item of shoppingList; let i = index">
-                        {{ item }}
-                        <button (click)="addToShoppingList()">Add</button>
-                         <button (click)="deleteFromShoppingList(i)">Delete</button>
-                        
-                    </li>
-                </ul>
-            </div>
+    <div class="shopping-list-container">
+        <h2>Recipe List</h2>
+        <ul>
+            <li *ngFor="let item of shoppingList; let i = index">
+               {{ item }}
+                <button (click)="deleteFromShoppingList(i)">Delete</button>
+            </li>
+        </ul>
+    </div>
+     
         </div>
     </div>
     
-=======
+
     <!-- Search bar -->
     <div class="search-bar">
         <input type="text" placeholder="Search...">
         <button type="submit">Search</button>
     </div>
->>>>>>> 29269056054045bb02069836a93b2e457847700d
+
 </body>
 </html>
 
