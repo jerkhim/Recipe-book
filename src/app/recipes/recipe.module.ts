@@ -11,12 +11,13 @@ import { DetailsComponent } from './details.component';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        RecipeRoutingModule
+        RecipeRoutingModule,
+   
     ],
     declarations: [
         LayoutComponent,
         DetailsComponent,
-      
+        
     ]
 })
 export class RecipeModule { }
