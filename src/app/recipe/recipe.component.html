@@ -1,0 +1,91 @@
+<!-- recipe.component.html -->
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<div class="recipe-form">
+    <h2>Add New Recipe</h2>
+    <form (ngSubmit)="addRecipe()">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" [(ngModel)]="newRecipe.name" name="name" required>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" [(ngModel)]="newRecipe.description" name="description" required></textarea>
+        </div>
+        <div>
+            <label for="ingredient">Ingredient:</label>
+            <input type="text" id="ingredient" [(ngModel)]="ingredient" name="ingredient">
+            <select [(ngModel)]="ingredientAmount" name="ingredientAmount">
+                <option *ngFor="let amount of amounts">{{ amount }}</option>
+            </select>
+            <button type="button" (click)="addIngredient()">Add Ingredient</button>
+        </div>
+        <div>
+            <label for="image">Image URL:</label>
+            <input type="text" id="image" [(ngModel)]="newRecipe.image" name="image" required>
+        </div>
+        <button type="submit">Add Recipe</button>
+    </form>
+    <div class="ingredient-list">
+        <h3>Ingredients</h3>
+        <ul>
+            <li *ngFor="let ingredient of newRecipe.ingredients; let i = index">
+                {{ ingredient }}
+                <button type="button" (click)="removeIngredient(i)">Remove</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="recipe-list">
+    <h2>Recipes List</h2>
+    <div class="search-bar">
+        <input type="text" placeholder="Search recipes..." [(ngModel)]="searchTerm">
+        <button type="button" (click)="clearSearch()">Clear</button>
+    </div>
+    <div *ngFor="let recipe of recipes; let i = index" class="recipe-item">
+        <h3>{{ recipe.name }}</h3>
+        <p>{{ recipe.description }}</p>
+        <ul>
+            <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+        </ul>
+        <img [src]="recipe.image" alt="{{ recipe.name }}">
+        <button (click)="viewRecipe(i)">View Recipe</button>
+    </div>
+</div>
+
+<!-- Recipe Detail Modal -->
+<div *ngIf="selectedRecipe" class="recipe-detail">
+    <form *ngIf="isEditing" (ngSubmit)="saveRecipe()">
+        <h2><input [(ngModel)]="selectedRecipe.name" name="recipeName" required></h2>
+        <p><textarea [(ngModel)]="selectedRecipe.description" name="recipeDescription" required></textarea></p>
+        <ul>
+            <li *ngFor="let ingredient of selectedRecipe.ingredients; let i = index">
+                <input [(ngModel)]="selectedRecipe.ingredients[i]" name="ingredient{{i}}">
+                <select [(ngModel)]="ingredientAmounts[i]" name="ingredientAmount{{i}}">
+                    <option *ngFor="let amount of amounts">{{ amount }}</option>
+                </select>
+                <button type="button" (click)="removeSelectedIngredient(i)">Remove</button>
+            </li>
+        </ul>
+        <button type="button" (click)="addNewIngredient()">Add Ingredient</button>
+        <img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}">
+    </form>
+    <div *ngIf="!isEditing">
+        <h2>{{ selectedRecipe.name }}</h2>
+        <p>{{ selectedRecipe.description }}</p>
+        <ul>
+            <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</li>
+        </ul>
+        <img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}">
+    </div>
+    <div class="modal-buttons">
+        <button *ngIf="!isEditing" (click)="editRecipe()">Edit Recipe</button>
+        <button *ngIf="isEditing" (click)="saveRecipe()">Save</button>
+        <button *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
+        <button (click)="deleteRecipe(selectedRecipeIndex)">Delete Recipe</button>
+        <button (click)="addToShoppingList(selectedRecipe)">Go to Shopping List</button>
+        <button (click)="closeRecipeDetail()">Close</button>
+    </div>
+</div>
