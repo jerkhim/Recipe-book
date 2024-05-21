@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping List</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="shopping.css">
+</head>
+<body>
+  <section class="shopping-list">
+    <div class="container">
+      <h2>Shopping List</h2>
+      <div class="form-container">
+        <form id="shoppingForm">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount *</label>
+            <input type="number" id="amount" name="amount" required>
+          </div>
+          <div class="form-buttons">
+            <button type="submit" id="addButton" class="btn btn-add">Add</button>
+            <button type="button" id="clearButton" class="btn btn-clear">Clear</button>
+            <ul>
+              <li *ngFor="let item of shoppingList">{{ item }}</li>
+            </ul>
+          </div>
+        </form>
+      </div>
+      <ul id="itemList" class="item-list">
+        <li>
+          <i class="material-icons">close</i>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <script src=""></script>
+</body>
+</html>

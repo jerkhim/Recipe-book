@@ -1,0 +1,252 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    border-radius: 5px;
+    /* Specify the path to your image */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+body h1 {
+    font-size: 80px;
+    margin-bottom: 20px;
+    font-family: 'Brush Script MT', 'cursive'; /* Using Brush Script MT as the primary font */
+    text-transform: inherit;
+    color: #333; /* Darker color for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding a subtle text shadow for depth */
+    letter-spacing: 2px; /* Increasing letter spacing for better legibility */
+    line-height: 1.2;
+    text-align: center;
+}
+
+   /* CSS for New Recipe Button */
+   .new-recipe-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.new-recipe-button:hover {
+    width: 40px;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+
+
+.recipe {
+    margin: 2.4rem 0;
+}
+
+.recipe img {
+    width: 100%;
+    display: block;
+}
+
+.recipe p {
+    padding: 1.5rem 0.5rem;
+}
+
+.view-recipe-button {
+    text-decoration: none;
+    color: #af1414;
+    background: var(--tenne-tawny);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    display: block;
+    width: 175px;
+    margin: 1rem auto;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+}
+
+/* Optional: Hover effect for button */
+.view-recipe-button:hover {
+    background: var(--tenne-tawny-dark);
+}
+
+
+.container {
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    margin: 2rem 0;;
+}
+
+.recipe {
+    width: calc(33.33% - 20px); /* Adjust width as needed */
+    margin: 10px;
+    text-align: center;
+}
+
+.recipe img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Adjust the width as needed */
+    text-align: center; /* Center align the content */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.show {
+    display: block;
+}
+/* Modal content image */
+.modal-content img {
+    max-width: 100%; /* Maximum width of the image */
+    max-height: 60vh; /* Maximum height of the image (60% of the viewport height) */
+    display: block; /* Ensure the image behaves as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+.modal-content h4 {
+    margin-top: 0; /* Remove default top margin */
+}
+
+/* Recipe description */
+.modal-content p {
+    margin-bottom: 0; /* Remove default bottom margin */
+}
+
+/* Modal content buttons */
+
+
+/* Hover effect */
+.modal-content button:hover {
+    background-color: rgb(85, 184, 61);
+    color: black;
+}
+
+/* Spacing between buttons */
+.modal-content button + button {
+    margin-top: 5px;
+}
+/* Modal content buttons container */
+.modal-content {
+    text-align: center; /* Center-align the content */
+}
+
+/* Modal content buttons */
+.modal-content button {
+    display: inline-block; /* Make buttons behave as inline-block elements */
+    padding: 2x 1px; /* Adjust padding */
+    margin-top: 10px;
+    border: 1px rgb(27, 31, 27); /* Adjust border width */
+    background-color: rgb(238, 243, 238);
+    color: rgb(182, 13, 13);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Hover effect */
+.modal-content button:hover {
+    background-color: rgb(41, 212, 55);
+    color: green;
+}
+
+/* Spacing between buttons */
+.modal-content button + button {
+    margin-left: 10px; /* Add space between buttons */
+}
+
+.shopping-list-container li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.shopping-list-container li button {
+    margin-left: 1px; /* Adjust the margin between buttons */
+}
+
+/* CSS for the search bar */
+.search-bar {
+    display: inline-block;
+    position: absolute; /* Set the position of the search bar */
+    top: 3%; /* Adjust the top position as needed */
+    right: 1%; /* Position it horizontally at 5% from the right */
+    transform: translateY(-50%); /* Center it vertically */
+    z-index: 2; /* Ensure the search bar appears above the background image */
+    border: none;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px 10px; /* Adjust padding as needed */
+    width: 200px; /* Adjust width as needed */
+    font-size: 16px;
+    border: 1px solid #ccc; /* Example border */
+    border-radius: 5px; /* Example border radius */
+}
+
+.search-bar button {
+    padding: 5px 10px; /* Adjust padding as needed */
+    font-size: 16px;
+    background-color: #4CAF50; /* Example background color */
+    color: white; /* Example text color */
+    border: none;
+    border-radius: 5px; /* Example border radius */
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #45a049; /* Example hover background color */
+}
+
