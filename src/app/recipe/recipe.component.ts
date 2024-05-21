@@ -15,7 +15,7 @@ export class RecipeComponent {
   selectedRecipeIndex: number = -1;
   isEditing: boolean = false;
   ingredientAmounts: string[] = [];
-  searchTerm: string = ''; // Add this property
+ 
 
   addRecipe() {
     const ingredientsWithAmounts = this.newRecipe.ingredients.map((ingredient, index) => `${ingredient} (${this.ingredientAmounts[index]})`);
@@ -89,15 +89,5 @@ export class RecipeComponent {
   }
 
   // Add the filteredRecipes and clearSearch methods here
-  filteredRecipes() {
-    if (!this.searchTerm.trim()) {
-      return this.recipes;
-    }
-    return this.recipes.filter(recipe =>
-      recipe.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
-  }
-  clearSearch() {
-    this.searchTerm = '';
-  }
+
 }
