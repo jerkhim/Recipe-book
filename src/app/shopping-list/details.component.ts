@@ -33,7 +33,7 @@ export class DetailsComponent implements OnInit {
     });
 
     clearButton.addEventListener('click', () => {
-      itemList.innerHTML = ''; // Clear the item list
+      shoppingForm.reset();
     });
   }
 
@@ -49,8 +49,8 @@ export class DetailsComponent implements OnInit {
     listItem.textContent = `${item.name} (${item.amount})`;
     
     const closeButton = document.createElement('button');
-    closeButton.innerHTML = '<i class="fas fa-times"></i>';
-    closeButton.classList.add('close-icon');
+    closeButton.innerHTML = '<i class="material-icons">close</i>';
+    closeButton.classList.add('material-icons');
     closeButton.onclick = () => this.removeItem(closeButton);
     
     listItem.appendChild(closeButton);
