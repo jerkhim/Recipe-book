@@ -112,3 +112,19 @@ input:focus {
   margin-bottom: 10px;
   color: #333;
 }
+
+.material-icons {
+  position: absolute;
+  right: 0px;
+  color: red;
+  background-color: white;
+  font-weight: 600;
+  box-shadow: 4px 4px 4px #bc5f5f;
+  cursor: pointer;
+}
+
+.material-icons:active{
+  box-shadow: 0 5px #a84040;
+  transform: translate(2px);
+}
+
