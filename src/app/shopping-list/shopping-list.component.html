@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping List</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="shopping.css">
+  <link rel="stylesheet" href="shopping-list.component.css">
 </head>
 <body>
   <section class="shopping-list">
@@ -24,9 +24,6 @@
           <div class="form-buttons">
             <button type="submit" id="addButton" class="btn btn-add">Add</button>
             <button type="button" id="clearButton" class="btn btn-clear">Clear</button>
-            <ul>
-              <li *ngFor="let item of shoppingList">{{ item }}</li>
-            </ul>
           </div>
         </form>
       </div>

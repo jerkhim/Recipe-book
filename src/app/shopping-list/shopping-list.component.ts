@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '@app/_services';
-import { Injectable } from '@angular/core';
+
 @Component({
-  templateUrl: 'details.component.html',
-  styleUrls: ['shopping.css']  // Ensure the CSS file is correctly linked if you have any
+  templateUrl: 'shopping-list.component.html',
+  styleUrls: ['shopping-list.component.css']  // Ensure the CSS file is correctly linked if you have any
 })
-export class DetailsComponent implements OnInit {
+export class ShoppingListComponent implements OnInit {
   account: any; // Define the type of account
-  shoppingList: string[] = [];
+
   constructor(private accountService: AccountService) { }
-  addToShoppingList(ingredients: string[]) {
-    this.shoppingList.push(...ingredients);
-  }
 
   ngOnInit() {
     this.account = this.accountService.accountValue; // Initialize account in ngOnInit
@@ -31,7 +28,6 @@ export class DetailsComponent implements OnInit {
         amount: parseInt(amountInput.value, 10)
       };
 
-    
       this.addItemToList(newItem, itemList);
       shoppingForm.reset();
     });
@@ -40,7 +36,6 @@ export class DetailsComponent implements OnInit {
       shoppingForm.reset();
     });
   }
-
 
   removeItem(button: HTMLButtonElement): void {
     const li = button.parentElement;
