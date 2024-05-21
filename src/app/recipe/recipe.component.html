@@ -25,25 +25,21 @@
             <label for="image">Image URL:</label>
             <input type="text" id="image" [(ngModel)]="newRecipe.image" name="image" required>
         </div>
-        <button type="submit">Add Recipe</button>
+        <button type="submit">Insert Image</button>
     </form>
     <div class="ingredient-list">
-        <h3>Ingredients</h3>
         <ul>
             <li *ngFor="let ingredient of newRecipe.ingredients; let i = index">
                 {{ ingredient }}
-                <button type="button" (click)="removeIngredient(i)">Remove</button>
+                <button type="button" (click)="removeIngredient(i)">Remove ingredient</button>
             </li>
         </ul>
     </div>
 </div>
 
 <div class="recipe-list">
-    <h2>Recipes List</h2>
-    <div class="search-bar">
-        <input type="text" placeholder="Search recipes..." [(ngModel)]="searchTerm">
-        <button type="button" (click)="clearSearch()">Clear</button>
-    </div>
+    <h2>Recipe List</h2>
+   
     <div *ngFor="let recipe of recipes; let i = index" class="recipe-item">
         <h3>{{ recipe.name }}</h3>
         <p>{{ recipe.description }}</p>
@@ -66,7 +62,7 @@
                 <select [(ngModel)]="ingredientAmounts[i]" name="ingredientAmount{{i}}">
                     <option *ngFor="let amount of amounts">{{ amount }}</option>
                 </select>
-                <button type="button" (click)="removeSelectedIngredient(i)">Remove</button>
+                <button type="button" (click)="removeSelectedIngredient(i)">Remove ingredient</button>
             </li>
         </ul>
         <button type="button" (click)="addNewIngredient()">Add Ingredient</button>
