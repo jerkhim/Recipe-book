@@ -13,8 +13,5 @@ import { RouterModule } from '@angular/router';
     ])
   ]
 })
-<<<<<<< HEAD
+
 export class shoppingListModule { }
-=======
-export class shoppingModule { }
->>>>>>> c3793742b87417fe8545dfefc4f0240637f622dc
