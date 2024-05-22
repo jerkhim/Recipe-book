@@ -22,15 +22,11 @@ const routes: Routes = [
     { path: 'account', loadChildren: accountModule },
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
-    
-    //{ path: 'shopping-list', loadChildren: ShoppingModule, canActivate: [AuthGuard] },
     { path: 'contactus', loadChildren: ContactModule, canActivate: [AuthGuard] },
-  
-
     { path: 'recipe', component: RecipeComponent, canActivate: [AuthGuard] },
     { path: 'shopping-list', component: ShoppingListComponent, canActivate: [AuthGuard] },
-
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: '' },
+    { path: 'shopping-list', component: ShoppingListComponent },
 ];
 
 @NgModule({

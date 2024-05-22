@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class RecipeComponent {
   newRecipe = { name: '', description: '', ingredients: [], image: '' };
   ingredient: string = '';
-  ingredientAmount: string = '1';
+  ingredientAmount: string = '';
   amounts = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   recipes = [];
   selectedRecipe: any = null;
@@ -16,6 +16,7 @@ export class RecipeComponent {
   isEditing: boolean = false;
   ingredientAmounts: string[] = [];
  
+  constructor(private router: Router) {}
 
   addRecipe() {
     const ingredientsWithAmounts = this.newRecipe.ingredients.map((ingredient, index) => `${ingredient} (${this.ingredientAmounts[index]})`);
@@ -51,7 +52,9 @@ export class RecipeComponent {
     this.ingredientAmounts = this.selectedRecipe.ingredients.map(ingredient => ingredient.match(/\((\d+)\)$/)[1]);
     this.isEditing = false;
   }
-
+  goToShoppingList() {
+    this.router.navigate(['/shopping-list']); // Navigate to the 'shopping-list' route
+  }
   editRecipe() {
     this.isEditing = true;
   }
@@ -66,10 +69,6 @@ export class RecipeComponent {
     this.selectedRecipe = { ...this.recipes[this.selectedRecipeIndex] };
     this.ingredientAmounts = this.selectedRecipe.ingredients.map(ingredient => ingredient.match(/\((\d+)\)$/)[1]);
     this.isEditing = false;
-  }
-
-  addToShoppingList(recipe: any) {
-    console.log('Add to shopping list:', recipe.ingredients);
   }
 
   closeRecipeDetail() {

@@ -1,5 +1,4 @@
-/* recipe.component.css */
-
+/* Global Styles */
 body {
   font-family: 'Cinzel', serif;
   background-color: #f5f5f5;
@@ -10,17 +9,13 @@ body {
   margin: 0;
 }
 
-.recipe-container {
-  width: 80%;
-  max-width: 800px; /* Adjust as needed */
-}
-
+/* Recipe Form */
 .recipe-form {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px; /* Adjust as needed */
+  max-width: 600px; /* Limit the width for better readability */
   width: 100%;
   box-sizing: border-box;
   margin: 0 auto; /* Center the form */
@@ -34,7 +29,7 @@ body {
 
 .recipe-form label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px; /* Slightly reduce margin for better spacing */
   font-size: 18px;
   color: #333;
 }
@@ -42,13 +37,14 @@ body {
 .recipe-form input[type="text"],
 .recipe-form textarea,
 .recipe-form select {
-  width: calc(100% - 20px); /* Adjust for padding */
+  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
   color: #555;
+  box-sizing: border-box; /* Ensure consistent box sizing */
 }
 
 .recipe-form button {
@@ -67,49 +63,33 @@ body {
   background-color: #6e3b08;
 }
 
-.ingredient-list h3 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.ingredient-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.ingredient-list li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.recipe-list h2 {
-  display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Recipe List */
+.recipe-list {
+  margin-top: 20px;
+  text-align: center; /* Center the content horizontally */
 }
 
 .recipe-item {
+  border: 1px solid #ccc;
+  padding: 15px; /* Increase padding for better spacing */
   margin-bottom: 20px;
-    text-align: center;
-    max-width: 600px; /* Optional: Set maximum width for recipe items */
 }
 
 .recipe-item h3 {
-  margin-bottom: 20px;
-    text-align: center;
-    max-width: 600px; /* Optional: Set maximum width for recipe items */
+  margin: 0; /* Remove default margins */
+  font-size: 20px;
+  color: #333;
 }
+
 .recipe-item p {
-  margin-bottom: 20px;
-  text-align: center;
-  max-width: 600px; /* Optional: Set maximum width for recipe items */
+  margin-bottom: 15px;
+  color: #555;
 }
 
 .recipe-item img {
   max-width: 100%;
-
+  height: auto;
+  margin-top: 15px; /* Increase margin for better separation */
 }
 
 .recipe-item button {
@@ -118,7 +98,7 @@ body {
   color: #fff;
   border: none;
   border-radius: 4px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -126,6 +106,8 @@ body {
 .recipe-item button:hover {
   background-color: #6e3b08;
 }
+
+/* Recipe Detail Modal */
 .recipe-detail {
   position: fixed;
   top: 50%;
@@ -135,8 +117,8 @@ body {
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  max-height: 80%; /* Set a maximum height for the modal */
-  overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
+  max-height: 80%;
+  overflow-y: auto;
 }
 
 .recipe-detail h2 {
@@ -148,7 +130,7 @@ body {
 .recipe-detail textarea,
 .recipe-detail input[type="text"],
 .recipe-detail select {
-  width: calc(100% - 20px); /* Adjust width to accommodate padding */
+  width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -156,20 +138,22 @@ body {
   font-size: 16px;
   color: #555;
 }
+
+/* Modal Buttons */
 .modal-buttons button {
-  padding: 8px 12px; /* Reduced padding */
+  padding: 10px 20px;
   background-color: #8b4513;
   color: #fff;
   border: none;
   border-radius: 4px;
-  font-size: 14px; /* Reduced font size */
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-right: 10px; /* Add margin between each button */
+  margin-right: 10px;
 }
 
 .modal-buttons button:last-child {
-  margin-right: 0; /* Remove margin from the last button */
+  margin-right: 0;
 }
 
 .modal-buttons button:hover {
