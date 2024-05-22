@@ -10,7 +10,7 @@ export class RecipeComponent {
   newRecipe = { name: '', description: '', ingredients: [], image: '' };
   ingredient: string = '';
   ingredientAmount: string = '';
-  amounts = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  amounts = ['1', '2', '3', '4'];
   recipes = [];
   filteredRecipes = [];
   searchTerm = '';
@@ -18,6 +18,7 @@ export class RecipeComponent {
   selectedRecipeIndex: number = -1;
   isEditing: boolean = false;
   ingredientAmounts: string[] = [];
+
  
   constructor(private router: Router) {}
 
@@ -99,6 +100,7 @@ export class RecipeComponent {
     this.ingredientAmounts.splice(index, 1);
   }
 
+
   searchRecipes() {
     if (this.searchTerm) {
       this.filteredRecipes = this.recipes.filter(recipe =>
@@ -113,4 +115,7 @@ export class RecipeComponent {
     this.searchTerm = '';
     this.filteredRecipes = this.recipes;
   }
+
+  
+
 }
