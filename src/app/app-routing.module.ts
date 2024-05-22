@@ -12,7 +12,7 @@ const accountModule = () => import('./account/account.module').then(x => x.Accou
 const adminModule = () => import('./admin/admin.module').then(x => x.AdminModule);
 const profileModule = () => import('./profile/profile.module').then(x => x.ProfileModule);
 
-//const ShoppingModule = () => import('./shopping-list/shoppinglist.module').then(x => x.ShoppingModule);
+const ShoppingModule = () => import('./shopping-list/shopping-list.module').then(x => x.shoppingModule);
 const ContactModule = () => import('./contactus/contact.module').then(x => x.ContactModule);
 const RecipeModule = () => import('./recipe/recipe.module').then(m => m.RecipeModule);
 
@@ -23,7 +23,7 @@ const routes: Routes = [
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
     
-    //{ path: 'shopping-list', loadChildren: ShoppingModule, canActivate: [AuthGuard] },
+    { path: 'shopping-list', loadChildren: ShoppingModule, canActivate: [AuthGuard] },
     { path: 'contactus', loadChildren: ContactModule, canActivate: [AuthGuard] },
   
 
