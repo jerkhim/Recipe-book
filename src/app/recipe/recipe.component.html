@@ -1,5 +1,3 @@
-<!-- recipe.cSmponent.html -->
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <div class="recipe-form">
@@ -11,11 +9,11 @@
         </div>
         <div>
             <label for="description">Description:</label>
-            <textarea id="description" [(ngModel)]="newRecipe.description" name="description" required></textarea>   
+            <textarea id="description" [(ngModel)]="newRecipe.description" name="description" required></textarea>
             <label for="ingredient">Amount</label>
             <select [(ngModel)]="ingredientAmount" name="ingredientAmount">
                 <option *ngFor="let amount of amounts">{{ amount }}</option>
-            </select>   
+            </select>
         </div>
         <div>
             <label for="image">Image URL:</label>
@@ -27,8 +25,14 @@
 
 <div class="recipe-list">
     <h2>Added Recipe Here</h2>
+
+    <div>
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search recipes..." />
+        <button (click)="searchRecipes()">Search</button>
+        <button (click)="clearSearch()">Clear</button>
+    </div>
    
-    <div *ngFor="let recipe of recipes; let i = index" class="recipe-item">
+    <div *ngFor="let recipe of filteredRecipes; let i = index" class="recipe-item">
        <h3>Name</h3>
         <p>{{ recipe.name }}</p>
         <h3>Description</h3>
@@ -38,11 +42,12 @@
         <img [src]="recipe.image" alt="{{ recipe.name }}">
         <br>
         <br>
-        <div style="display: position; justify-content: space-between;">
-            <button style="width: 150px;" (click)="viewRecipe(i)">View Recipe</button>
-            <button style="width: 150px;" (click)="goToShoppingList(selectedRecipe)">Shopping List</button>
-          </div> 
+        <div class="button-group">
+            <button (click)="viewRecipe(i)">View Recipe</button>
+            <button (click)="goToShoppingList()">Shopping List</button>
+        </div> 
     </div>
+</div>
 
 <!-- Recipe Detail Modal -->
 <div *ngIf="selectedRecipe" class="recipe-detail">
@@ -52,11 +57,7 @@
         <ul>
             <p *ngFor="let ingredient of selectedRecipe.ingredients; let i = index">
                 <select [(ngModel)]="ingredientAmounts[i]" name="ingredientAmount{{i}}">
-                    <select [(ngModel)]="ingredientAmount" name="ingredientAmount">
-                        <option *ngFor="let amount of amounts">{{ amount }}</option>
-                    </select>   
-                    <img [src]="recipe.image" alt="{{ recipe.name }}">
-
+                    <option *ngFor="let amount of amounts">{{ amount }}</option>
                 </select>
             </p>
         </ul>
@@ -66,8 +67,7 @@
         <button type="button" (click)="removeSelectedIngredient(i)">Remove ingredient</button>
     </form>
     <div *ngIf="!isEditing">
-
-        <p>{{"Recipe Name: " +  selectedRecipe.name }}</p>
+        <p>{{"Recipe Name: " + selectedRecipe.name }}</p>
         <p>{{ "Description : " + selectedRecipe.description }}</p>
         <p>{{ "Amount:  " + ingredientAmount }}</p>
         <ul>

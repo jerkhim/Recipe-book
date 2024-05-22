@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
@@ -11,6 +12,8 @@ export class RecipeComponent {
   ingredientAmount: string = '';
   amounts = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   recipes = [];
+  filteredRecipes = [];
+  searchTerm = '';
   selectedRecipe: any = null;
   selectedRecipeIndex: number = -1;
   isEditing: boolean = false;
@@ -18,9 +21,14 @@ export class RecipeComponent {
  
   constructor(private router: Router) {}
 
+  ngOnInit() {
+    this.filteredRecipes = this.recipes;
+  }
+
   addRecipe() {
     const ingredientsWithAmounts = this.newRecipe.ingredients.map((ingredient, index) => `${ingredient} (${this.ingredientAmounts[index]})`);
     this.recipes.push({ ...this.newRecipe, ingredients: ingredientsWithAmounts });
+    this.filteredRecipes = this.recipes;
     this.newRecipe = { name: '', description: '', ingredients: [], image: '' };
     this.ingredientAmounts = [];
   }
@@ -41,6 +49,7 @@ export class RecipeComponent {
 
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
+    this.filteredRecipes = this.recipes;
     if (index === this.selectedRecipeIndex) {
       this.closeRecipeDetail();
     }
@@ -52,9 +61,11 @@ export class RecipeComponent {
     this.ingredientAmounts = this.selectedRecipe.ingredients.map(ingredient => ingredient.match(/\((\d+)\)$/)[1]);
     this.isEditing = false;
   }
+
   goToShoppingList() {
     this.router.navigate(['/shopping-list']); // Navigate to the 'shopping-list' route
   }
+
   editRecipe() {
     this.isEditing = true;
   }
@@ -62,6 +73,7 @@ export class RecipeComponent {
   saveRecipe() {
     const ingredientsWithAmounts = this.selectedRecipe.ingredients.map((ingredient, index) => `${ingredient} (${this.ingredientAmounts[index]})`);
     this.recipes[this.selectedRecipeIndex] = { ...this.selectedRecipe, ingredients: ingredientsWithAmounts };
+    this.filteredRecipes = this.recipes;
     this.isEditing = false;
   }
 
@@ -87,6 +99,18 @@ export class RecipeComponent {
     this.ingredientAmounts.splice(index, 1);
   }
 
-  // Add the filteredRecipes and clearSearch methods here
+  searchRecipes() {
+    if (this.searchTerm) {
+      this.filteredRecipes = this.recipes.filter(recipe =>
+        recipe.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.filteredRecipes = this.recipes;
+    }
+  }
 
+  clearSearch() {
+    this.searchTerm = '';
+    this.filteredRecipes = this.recipes;
+  }
 }
