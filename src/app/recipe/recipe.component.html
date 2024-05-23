@@ -6,21 +6,19 @@
     <h2>Make Recipe</h2>
     <form (ngSubmit)="addRecipe()">
         <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" [(ngModel)]="newRecipe.name" name="name" required>
+            <input type="text" id="name" [(ngModel)]="newRecipe.name" name="name" placeholder="Name" required>
         </div>
         <div>
-            <label for="description">Description:</label>
-            <textarea id="description" [(ngModel)]="newRecipe.description" name="description" required></textarea>   
-            <label for="ingredient">Amount</label>
-            <select [(ngModel)]="ingredientAmount" name="ingredientAmount">
+            <textarea id="description" [(ngModel)]="newRecipe.description" name="description" placeholder="Description" required></textarea>   
+            <select [(ngModel)]="ingredientAmount" name="ingredientAmount" required>
+                <option value="" disabled selected>Select Amount</option>
                 <option *ngFor="let amount of amounts">{{ amount }}</option>
-            </select>   
+            </select>
         </div>
         <div>
-            <label for="image">Image URL:</label>
-            <input type="text" id="image" [(ngModel)]="newRecipe.image" name="image" required>
+            <input type="text" id="image" [(ngModel)]="newRecipe.image" name="image" placeholder="Image URL" required>
         </div>
+        
         <button type="submit">Submit</button>
     </form>
 </div>
@@ -40,46 +38,49 @@
         <br>
         <div style="display: position; justify-content: space-between;">
             <button style="width: 150px;" (click)="viewRecipe(i)">View Recipe</button>
-            <button style="width: 150px;" (click)="goToShoppingList(selectedRecipe)">Shopping List</button>
+            <button style="width: 150px;" (click)="goToShoppingList(selectedRecipe)">Ingredients</button>
           </div> 
     </div>
 
 <!-- Recipe Detail Modal -->
 <div *ngIf="selectedRecipe" class="recipe-detail">
     <form *ngIf="isEditing" (ngSubmit)="saveRecipe()">
-        <h2><input [(ngModel)]="selectedRecipe.name" name="recipeName" required></h2>
-        <p><textarea [(ngModel)]="selectedRecipe.description" name="recipeDescription" required></textarea></p>
+        <h2><input [(ngModel)]="selectedRecipe.name" name="recipeName" placeholder="Recipe Name" required></h2>
+        <p><textarea [(ngModel)]="selectedRecipe.description" name="recipeDescription" placeholder="Recipe Description" required></textarea></p>
+        <select [(ngModel)]="ingredientAmount" name="ingredientAmount" required>
+            <option value="" disabled selected>Select Amount</option>
+            <option *ngFor="let amount of amounts">{{ amount }}</option>
+        </select>
+        <img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}">
         <ul>
             <p *ngFor="let ingredient of selectedRecipe.ingredients; let i = index">
                 <select [(ngModel)]="ingredientAmounts[i]" name="ingredientAmount{{i}}">
-                    <select [(ngModel)]="ingredientAmount" name="ingredientAmount">
-                        <option *ngFor="let amount of amounts">{{ amount }}</option>
-                    </select>   
-                    <img [src]="recipe.image" alt="{{ recipe.name }}">
-
+                    <option *ngFor="let amount of amounts">{{ amount }}</option>
                 </select>
+               
+                <img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}">
             </p>
         </ul>
-        <img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}">
         <br>
-        <button type="button" (click)="addNewIngredient()">Add Ingredient</button>
-        <button type="button" (click)="removeSelectedIngredient(i)">Remove ingredient</button>
     </form>
     <div *ngIf="!isEditing">
+       
+        <p>{{ selectedRecipe.name ? "Recipe Name: " + selectedRecipe.name : "Recipe Name: (Placeholder)" }}</p>
+        <p>{{ selectedRecipe.description ? "Description: " + selectedRecipe.description : "Description: (Placeholder)" }}</p>
+        <p>{{ ingredientAmount ? "Amount: " + ingredientAmount : "Amount: (Placeholder)" }}</p>
 
-        <p>{{"Recipe Name: " +  selectedRecipe.name }}</p>
-        <p>{{ "Description : " + selectedRecipe.description }}</p>
-        <p>{{ "Amount:  " + ingredientAmount }}</p>
         <ul>
-            <p *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</p>
+            <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</li>
         </ul>
-        <img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}">
     </div>
+    
+    
+    
     <div class="modal-buttons">
         <button *ngIf="!isEditing" (click)="editRecipe()">Edit Recipe</button>
-        <button *ngIf="isEditing" (click)="saveRecipe()">Save</button>
+        <button *ngIf="isEditing" (click)="saveRecipe(); isEditing = false;">Save</button>
         <button *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
         <button (click)="deleteRecipe(selectedRecipeIndex)">Delete Recipe</button>
         <button (click)="closeRecipeDetail()">Close</button>
     </div>
-</div>
+    

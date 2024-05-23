@@ -9,12 +9,13 @@ export class RecipeComponent {
   newRecipe = { name: '', description: '', ingredients: [], image: '' };
   ingredient: string = '';
   ingredientAmount: string = '';
-  amounts = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  amounts = ['1', '2', '3', '4'];
   recipes = [];
   selectedRecipe: any = null;
   selectedRecipeIndex: number = -1;
   isEditing: boolean = false;
   ingredientAmounts: string[] = [];
+
  
   constructor(private router: Router) {}
 
@@ -86,7 +87,5 @@ export class RecipeComponent {
     this.selectedRecipe.ingredients.splice(index, 1);
     this.ingredientAmounts.splice(index, 1);
   }
-
-  // Add the filteredRecipes and clearSearch methods here
-
+  
 }
