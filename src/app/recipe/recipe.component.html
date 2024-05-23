@@ -1,98 +1,66 @@
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-
-<div class="recipe-form">
-    <h2>Make Recipe</h2>
-    <form (ngSubmit)="addRecipe()">
-        <div>
-            <input type="text" id="name" [(ngModel)]="newRecipe.name" name="name" placeholder="Name" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Cards</title>
+    <link rel="stylesheet" href="recipe.component.css">
+</head>
+<body>
+    <header>
+        <div class="overlay">
+            <div class="header-content">
+                <h1>Chicken Recipes</h1>
+            </div>
         </div>
-        <div>
-
-            <label for="description">Description:</label>
-            <textarea id="description" [(ngModel)]="newRecipe.description" name="description" required></textarea>
-            <label for="ingredient">Amount</label>
-            <select [(ngModel)]="ingredientAmount" name="ingredientAmount">
-
-                <option *ngFor="let amount of amounts">{{ amount }}</option>
-            </select>
+    </header>
+    <main>
+        <div class="recipe-container">
+            <div class="recipe-card">
+                <img src="assets/images/recipe_1.png" alt="Egg Manchurian">
+                <h2>Egg Manchurian</h2>
+                <p>Appetizer</p>
+                <p>Time Needs: 30 Mins</p>
+                <button (click)="viewFullRecipe('Egg Manchurian')">View Full Recipe</button>
+            </div>
+            <div class="recipe-card">
+                <img src="assets/images/recipe_2.png" alt="Pure Vegetable Bowl">
+                <h2>Pure Vegetable Bowl</h2>
+                <p>Appetizer</p>
+                <p>Time Needs: 30 Mins</p>
+                <button (click)="viewFullRecipe('Pure Vegetable Bowl')">View Full Recipe</button>
+            </div>
+            <div class="recipe-card">
+                <img src="assets/images/recipe_3.png" alt="Egg Masala Ramen">
+                <h2>Egg Masala Ramen</h2>
+                <p>Appetizer</p>
+                <p>Time Needs: 30 Mins</p>
+                <button (click)="viewFullRecipe('Egg Masala Ramen')">View Full Recipe</button>
+            </div>
         </div>
-        <div>
-            <input type="text" id="image" [(ngModel)]="newRecipe.image" name="image" placeholder="Image URL" required>
+    </main>
+    
+
+    <!-- Recipe Cards HTML -->
+    <!-- Modal for Full Recipe -->
+    <div *ngIf="fullRecipe" class="modal">
+        <div class="modal-content">
+            <span class="close" (click)="closeFullRecipe()">&times;</span>
+            <h2>{{ fullRecipe.name }}</h2>
+            <p>{{ fullRecipe.description }}</p>
+            
+            <!-- Ingredients -->
+            <h3>Ingredients:</h3>
+            <ul>
+                <li *ngFor="let ingredient of fullRecipe.ingredients">{{ ingredient }}</li>
+            </ul>
+            
+            <!-- Instructions -->
+            <h3>Instructions:</h3>
+            <ol>
+                <li *ngFor="let instruction of fullRecipe.instructions">{{ instruction }}</li>
+            </ol>
         </div>
-        
-        <button type="submit">Submit</button>
-    </form>
-</div>
-
-<div class="recipe-list">
-    <h2>Added Recipe Here</h2>
-
-    <div>
-        <input type="text" [(ngModel)]="searchTerm" placeholder="Search recipes..." />
-        <button (click)="searchRecipes()">Search</button>
-        <button (click)="clearSearch()">Clear</button>
     </div>
-   
-    <div *ngFor="let recipe of filteredRecipes; let i = index" class="recipe-item">
-       <h3>Name</h3>
-        <p>{{ recipe.name }}</p>
-        <h3>Description</h3>
-        <p>{{ recipe.description }}</p>
-        <h3>Amount</h3>
-        <p>{{ ingredientAmount }}</p>
-        <img [src]="recipe.image" alt="{{ recipe.name }}">
-        <br>
-        <br>
-
-        <div style="display: position; justify-content: space-between;">
-            <button style="width: 150px;" (click)="viewRecipe(i)">View Recipe</button>
-            <button style="width: 150px;" (click)="goToShoppingList(selectedRecipe)">Ingredients</button>
-          </div> 
-
-    </div>
-</div>
-
-<!-- Recipe Detail Modal -->
-<div *ngIf="selectedRecipe" class="recipe-detail">
-    <form *ngIf="isEditing" (ngSubmit)="saveRecipe()">
-        <h2><input [(ngModel)]="selectedRecipe.name" name="recipeName" placeholder="Recipe Name" required></h2>
-        <p><textarea [(ngModel)]="selectedRecipe.description" name="recipeDescription" placeholder="Recipe Description" required></textarea></p>
-        <select [(ngModel)]="ingredientAmount" name="ingredientAmount" required>
-            <option value="" disabled selected>Select Amount</option>
-            <option *ngFor="let amount of amounts">{{ amount }}</option>
-        </select>
-        <!--<img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}"-->
-        <ul>
-            <p *ngFor="let ingredient of selectedRecipe.ingredients; let i = index">
-                <select [(ngModel)]="ingredientAmounts[i]" name="ingredientAmount{{i}}">
-                    <option *ngFor="let amount of amounts">{{ amount }}</option>
-                </select>
-               
-                <img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}">
-            </p>
-        </ul>
-        <br>
-    </form>
-    <div *ngIf="!isEditing">
-
-       
-        <p>{{ selectedRecipe.name ? "Recipe Name: " + selectedRecipe.name : "Recipe Name: (Placeholder)" }}</p>
-        <p>{{ selectedRecipe.description ? "Description: " + selectedRecipe.description : "Description: (Placeholder)" }}</p>
-        <p>{{ ingredientAmount ? "Amount: " + ingredientAmount : "Amount: (Placeholder)" }}</p>
-
-
-        <ul>
-            <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</li>
-        </ul>
-    </div>
-    
-    
-    
-    <div class="modal-buttons">
-        <button *ngIf="!isEditing" (click)="editRecipe()">Edit Recipe</button>
-        <button *ngIf="isEditing" (click)="saveRecipe(); isEditing = false;">Save</button>
-        <button *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
-        <button (click)="deleteRecipe(selectedRecipeIndex)">Delete Recipe</button>
-        <button (click)="closeRecipeDetail()">Close</button>
-    </div>
-    
+</body>
+</html>

@@ -5,7 +5,7 @@ import { HomeComponent } from './home';
 import { AuthGuard } from './_helpers';
 import { Role } from './_models';
 import { RecipeComponent } from './recipe';
-import { ShoppingListComponent } from './shopping-list';
+
 
 // Lazy loaded modules
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
@@ -24,9 +24,8 @@ const routes: Routes = [
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
     { path: 'contactus', loadChildren: ContactModule, canActivate: [AuthGuard] },
     { path: 'recipe', component: RecipeComponent, canActivate: [AuthGuard] },
-    { path: 'shopping-list', component: ShoppingListComponent, canActivate: [AuthGuard] },
     { path: '**', redirectTo: '' },
-    { path: 'shopping-list', component: ShoppingListComponent },
+    
 ];
 
 @NgModule({

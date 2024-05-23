@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Recipe } from '../_models/recipe';
 
 @Component({
   selector: 'app-recipe',
@@ -7,115 +7,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent {
-  newRecipe = { name: '', description: '', ingredients: [], image: '' };
-  ingredient: string = '';
-  ingredientAmount: string = '';
-  amounts = ['1', '2', '3', '4'];
-  recipes = [];
-  filteredRecipes = [];
-  searchTerm = '';
-  selectedRecipe: any = null;
-  selectedRecipeIndex: number = -1;
-  isEditing: boolean = false;
-  ingredientAmounts: string[] = [];
+  fullRecipe: { name: string, description: string, ingredients: string[], instructions: string[] } | null = null;
 
- 
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    this.filteredRecipes = this.recipes;
-  }
-
-  addRecipe() {
-    const ingredientsWithAmounts = this.newRecipe.ingredients.map((ingredient, index) => `${ingredient} (${this.ingredientAmounts[index]})`);
-    this.recipes.push({ ...this.newRecipe, ingredients: ingredientsWithAmounts });
-    this.filteredRecipes = this.recipes;
-    this.newRecipe = { name: '', description: '', ingredients: [], image: '' };
-    this.ingredientAmounts = [];
-  }
-
-  addIngredient() {
-    if (this.ingredient) {
-      this.newRecipe.ingredients.push(this.ingredient);
-      this.ingredientAmounts.push(this.ingredientAmount);
-      this.ingredient = '';
-      this.ingredientAmount = '1';
-    }
-  }
-
-  removeIngredient(index: number) {
-    this.newRecipe.ingredients.splice(index, 1);
-    this.ingredientAmounts.splice(index, 1);
-  }
-
-  deleteRecipe(index: number) {
-    this.recipes.splice(index, 1);
-    this.filteredRecipes = this.recipes;
-    if (index === this.selectedRecipeIndex) {
-      this.closeRecipeDetail();
-    }
-  }
-
-  viewRecipe(index: number) {
-    this.selectedRecipeIndex = index;
-    this.selectedRecipe = { ...this.recipes[index] };
-    this.ingredientAmounts = this.selectedRecipe.ingredients.map(ingredient => ingredient.match(/\((\d+)\)$/)[1]);
-    this.isEditing = false;
-  }
-
-  goToShoppingList() {
-    this.router.navigate(['/shopping-list']); // Navigate to the 'shopping-list' route
-  }
-
-  editRecipe() {
-    this.isEditing = true;
-  }
-
-  saveRecipe() {
-    const ingredientsWithAmounts = this.selectedRecipe.ingredients.map((ingredient, index) => `${ingredient} (${this.ingredientAmounts[index]})`);
-    this.recipes[this.selectedRecipeIndex] = { ...this.selectedRecipe, ingredients: ingredientsWithAmounts };
-    this.filteredRecipes = this.recipes;
-    this.isEditing = false;
-  }
-
-  cancelEdit() {
-    this.selectedRecipe = { ...this.recipes[this.selectedRecipeIndex] };
-    this.ingredientAmounts = this.selectedRecipe.ingredients.map(ingredient => ingredient.match(/\((\d+)\)$/)[1]);
-    this.isEditing = false;
-  }
-
-  closeRecipeDetail() {
-    this.selectedRecipe = null;
-    this.selectedRecipeIndex = -1;
-    this.isEditing = false;
-  }
-
-  addNewIngredient() {
-    this.selectedRecipe.ingredients.push('');
-    this.ingredientAmounts.push('1');
-  }
-
-  removeSelectedIngredient(index: number) {
-    this.selectedRecipe.ingredients.splice(index, 1);
-    this.ingredientAmounts.splice(index, 1);
-  }
-
-
-  searchRecipes() {
-    if (this.searchTerm) {
-      this.filteredRecipes = this.recipes.filter(recipe =>
-        recipe.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
+  viewFullRecipe(recipeName: string) {
+    // Sample data for demonstration
+    if (recipeName === 'Egg Manchurian') {
+      this.fullRecipe = {
+        name: 'Egg Manchurian',
+        description: 'Delicious Egg Manchurian recipe.',
+        ingredients: ['Egg', 'Soy Sauce', 'Garlic'],
+        instructions: ['Step 1: Boil eggs', 'Step 2: Prepare sauce', 'Step 3: Mix eggs with sauce']
+      };
+    } else if (recipeName === 'Pure Vegetable Bowl') {
+      this.fullRecipe = {
+        name: 'Pure Vegetable Bowl',
+        description: 'Healthy and nutritious vegetable bowl recipe.',
+        ingredients: ['Carrot', 'Broccoli', 'Bell Pepper'],
+        instructions: ['Step 1: Chop vegetables', 'Step 2: Stir fry vegetables', 'Step 3: Serve with sauce']
+      };
+    } else if (recipeName === 'Egg Masala Ramen') {
+      this.fullRecipe = {
+        name: 'Egg Masala Ramen',
+        description: 'Spicy and flavorful Egg Masala Ramen recipe.',
+        ingredients: ['Ramen Noodles', 'Egg', 'Masala'],
+        instructions: ['Step 1: Cook noodles', 'Step 2: Prepare masala', 'Step 3: Mix noodles with masala']
+      };
     } else {
-      this.filteredRecipes = this.recipes;
+      console.error('Recipe not found:', recipeName);
     }
   }
 
-  clearSearch() {
-    this.searchTerm = '';
-    this.filteredRecipes = this.recipes;
+  closeFullRecipe() {
+    this.fullRecipe = null;
   }
-
-  
-
 }
