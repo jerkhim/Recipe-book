@@ -3,25 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Header</title>
     <link rel="stylesheet" href="about-us.component.css">
+    
+    <!--Css link here-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>About Us</h1>
+        <!-- Content inside the header goes here -->
+        <div class="overlay">
+            <h1>Welcome to our Recipe Website</h1>
+            <p>Discover delicious recipes!</p>
+        </div>
     </header>
-    <main>
-        <section class="about-us">
-            <div class="container">
-                <h2>Our Story</h2>
-                <p>Welcome to our recipe book! We are passionate about cooking and sharing delicious recipes with the world. Our goal is to inspire others to get into the kitchen and create tasty meals for themselves and their loved ones.</p>
-                <p>With a diverse collection of recipes from around the globe, we aim to cater to all tastes and dietary preferences. Whether you're a seasoned chef or a novice cook, you'll find something here to tantalize your taste buds.</p>
-                <p>Join us on this culinary journey as we explore new flavors, experiment with ingredients, and uncover the secrets to creating mouthwatering dishes. Happy cooking!</p>
+   
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-4 font-cursive text-zinc-800 dark:text-zinc-200">
+            Recipe videos that never miss a portion
+        </h1>
+        <p class="text-base md:text-lg lg:text-xl text-center text-zinc-600 dark:text-zinc-400 max-w-2xl">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        </p>
+    </div>
+ 
+<!--start-->
+
+    <div class="flex flex-wrap justify-center items-center p-6 bg-white dark:bg-zinc-800">
+  <div class="w-full md:w-1/2 p-4">
+    <h1 class="text-4xl md:text-5xl font-bold font-cursive text-zinc-900 dark:text-white mb-4">
+      Recipe videos that never misses any portion
+    </h1>
+    <p class="text-zinc-600 dark:text-zinc-300 mb-6">
+      Inappropriate behavior is often laughed off as "boys will be boys," women face higher conduct standards especially in the workplace. That's why it's crucial that, as women.
+    </p>
+    <button class="flex items-center bg-yellow-500 text-white font-semibold py-2 px-4 rounded-full shadow-lg">
+      <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-4.197-2.42A1 1 0 009 9.618v4.764a1 1 0 001.555.832l4.197-2.42a1 1 0 000-1.664z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"></path>
+      </svg>
+      Watch Video
+    </button>
+    <p class="text-zinc-500 dark:text-zinc-400 mt-2">You will love our execution</p>
+  </div>
+  <div class="w-full md:w-1/2 p-4 flex flex-wrap justify-center items-center">
+    <div class="relative w-40 h-40 md:w-48 md:h-48 m-2">
+      <img class="rounded-lg shadow-lg w-full h-full object-cover" src="assets/images/recipe_1.png" alt="Delicious burger">
+    </div>
+    <div class="relative w-40 h-40 md:w-48 md:h-48 m-2">
+      <img class="rounded-lg shadow-lg w-full h-full object-cover" src="assets/images/recipe_2.png" alt="Tasty noodles">
+    </div>
+    <div class="relative w-40 h-40 md:w-48 md:h-48 m-2">
+      <img class="rounded-lg shadow-lg w-full h-full object-cover" src="assets/images/recipe_3.png" alt="Pancakes with blueberries">
+    </div>
+  </div>
+</div>
+
+<!--end-->
+
+
+<!--start-->
+                <div class="flex flex-col md:flex-row items-center justify-between p-6 bg-white dark:bg-zinc-800">
+            <div class="relative flex-1 mb-6 md:mb-0">
+                <div class="absolute top-0 left-0 w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-lg">
+                <img src="https://placehold.co/150x150" alt="Food Image 1" class="w-full h-full object-cover" />
+                </div>
+                <div class="absolute top-12 left-12 w-48 h-48 md:w-64 md:h-64 rounded-lg overflow-hidden shadow-lg">
+                <img src="https://placehold.co/300x300" alt="Food Image 2" class="w-full h-full object-cover" />
+                </div>
+                <div class="absolute top-48 left-24 w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-lg">
+                <img src="https://placehold.co/150x150" alt="Food Image 3" class="w-full h-full object-cover" />
+                </div>
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>Contact Us: contact&#64;example.com</p>
-    </footer>
-</body>
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4">Download app to get recipes from Everywhere</h2>
+                <div class="flex justify-center md:justify-start space-x-4">
+                <a href="#" class="flex items-center bg-yellow-500 text-white py-2 px-4 rounded-lg shadow-lg">
+                    <img src="https://placehold.co/20x20" alt="Apple Logo" class="w-5 h-5 mr-2" />
+                    Available on App Store
+                </a>
+                <a href="#" class="flex items-center bg-white text-zinc-900 py-2 px-4 rounded-lg shadow-lg border border-zinc-300">
+                    <img src="https://placehold.co/20x20" alt="Google Play Logo" class="w-5 h-5 mr-2" />
+                    Download from Play Store
+                </a>
+                </div>
+            </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+     <!--end-->       
+
+    <!--start--> 
+                  <div class="relative bg-cover bg-center h-screen" style="background-image: url('https://mailmyfood.com/media/catalog/category/Pie_1_Cat_Pg.jpg');">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+                <div class="relative flex flex-col items-center justify-center h-full text-center text-white px-4">
+                  <p class="text-sm uppercase tracking-widest">Thousands of recipes are waiting to be watched</p>
+                  <h1 class="text-4xl md:text-6xl font-bold my-4">Discover latest trending recipes</h1>
+                  <button class="bg-yellow-500 text-white font-semibold py-2 px-6 rounded-full mt-4 hover:bg-yellow-600 transition duration-300">View all Recipes</button>
+                </div>
+              </div>
+    <!--end-->   
+
+<!--start-->
+
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+  <div class="text-center">
+    <h2 class="text-3xl font-extrabold text-zinc-900 dark:text-white sm:text-4xl">Feedback From Customers</h2>
+    <p class="mt-4 text-lg leading-6 text-zinc-500 dark:text-zinc-400">
+      Inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women.
+    </p>
+  </div>
+  <div class="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-2">
+    <div class="bg-white dark:bg-zinc-800 shadow-lg rounded-lg p-6">
+      <div class="flex items-center">
+        <img class="h-16 w-16 rounded-full" src="https://placehold.co/100x100" alt="Customer 1">
+        <div class="ml-4">
+          <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">Adame Nesane</h3>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400">Chief Customer</p>
+        </div>
+      </div>
+      <div class="mt-4 text-zinc-600 dark:text-zinc-300">
+        You're had. Subdue grass Meat us winged years you'll doesn't. fruit two also won one yielding creepth third give may never lie alternet food.
+      </div>
+    </div>
+    <div class="bg-white dark:bg-zinc-800 shadow-lg rounded-lg p-6">
+      <div class="flex items-center">
+        <img class="h-16 w-16 rounded-full" src="https://placehold.co/100x100" alt="Customer 2">
+        <div class="ml-4">
+          <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">Adame Nesane</h3>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400">Chief Customer</p>
+        </div>
+      </div>
+      <div class="mt-4 text-zinc-600 dark:text-zinc-300">
+        You're had. Subdue grass Meat us winged years you'll doesn't. fruit two also won one yielding creepth third give may never lie alternet food.
+      </div>
+    </div>
+  </div>
+</div>
+ 
+   <!--contact section-->
+<!-- ARI BUTANG ANG CONTACT SECITON-->
+
+    <div class="min-h-screen flex items-center justify-center bg-blue-100 p-6">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
+    <h2 class="text-2xl font-bold text-center mb-6">Contact Us</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Send us a message</h3>
+        <form>
+          <div class="mb-4">
+            <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div class="mb-4">
+            <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div class="mb-4">
+            <textarea placeholder="Your Message" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600">Send Message</button>
+        </form>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+        <ul class="space-y-4">
+          <li class="flex items-center">
+            <img aria-hidden="true" alt="phone" src="https://placehold.co/24x24" class="mr-2">
+            <span>+1 123 456 789</span>
+          </li>
+          <li class="flex items-center">
+            <img aria-hidden="true" alt="email" src="https://placehold.co/24x24" class="mr-2">
+            <span>info&#64;example.com</span>
+          </li>
+          <li class="flex items-center">
+            <img aria-hidden="true" alt="location" src="https://placehold.co/24x24" class="mr-2">
+            <span>123 Street, City, Country</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+    <!--contact section-->
+
+      </body>
 </html>

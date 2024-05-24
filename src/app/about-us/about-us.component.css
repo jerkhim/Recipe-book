@@ -5,14 +5,47 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    position: relative;
+    height: 95vh;
+    background: url('recipebg.png') no-repeat center center/cover;
+    color: rgb(240, 232, 232);
     text-align: center;
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Add overlay with semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to change the darkness */
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
 header h1 {
-    margin: 0;
+    font-size: 80px;
+    margin-bottom: 20px;
+    font-family: 'Brush Script MT', 'cursive';
+    text-transform: inherit;
+    color: #eee3e3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+header p {
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 main {
@@ -38,10 +71,27 @@ main {
 
 footer {
     background-color: #333;
-    color: #fff;
+    color: #646363;
     text-align: center;
     padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
+
+/* Add your custom styles here */
+
+.bg-zinc-100 {
+    background-color: #f0f4f8;
+}
+
+.dark\:bg-zinc-900 {
+    background-color: #1a202c;
+}
+
+.font-cursive {
+    font-family: 'Brush Script MT', cursive;
+}
+
+/*CONTACT DIRI NGA STYLE*/
+
