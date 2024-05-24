@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RecipeComponent } from './recipe';
+import { AboutUsComponent } from './about-us';
 //mport { ShoppingListComponent } from './shopping-list';
 
 
@@ -20,9 +21,7 @@ import { AccountService } from './_services';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
-
-
-
+import { AboutUsModule } from './about-us/about-us.module';
 
 
 @NgModule({
@@ -35,6 +34,7 @@ import { HomeComponent } from './home';
         RouterModule,
         CommonModule,
         ReactiveFormsModule,
+        AboutUsModule,
      
         
     ],
@@ -43,7 +43,7 @@ import { HomeComponent } from './home';
         AlertComponent,
         HomeComponent,
         RecipeComponent,
-      
+        
        
     ],
     providers: [
