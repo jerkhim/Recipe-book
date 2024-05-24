@@ -1,6 +1,8 @@
-export class Recipe {
+export interface Recipe {
+  id: string;  // Add this property
   name: string;
-  ingredients: string[];
-  instructions: string[];
-  images: string;
+  description: string;
+  ingredients: string;
+  instructions: string;
+  imageUrl: string;
 }

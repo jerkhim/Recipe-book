@@ -1,0 +1,30 @@
+<h1>Recipes</h1>
+<p>All recipes:</p>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Create Recipe</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:30%">Name</th>
+            <th style="width:30%">Description</th>
+            <th style="width:20%">Ingredients</th>
+            <th style="width:30%">Instructions</th>
+            <th style="width:10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let recipe of recipes">
+            <td>{{recipe.name}}</td>
+            <td>{{recipe.description}}</td>
+            <td>{{recipe.ingredients}}</td>
+            <td>{{recipe.instructions}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{recipe.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+            </td>
+        </tr>
+        <tr *ngIf="!recipes">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
