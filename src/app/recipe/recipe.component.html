@@ -15,52 +15,33 @@
         </div>
     </header>
     <main>
+        
         <div class="recipe-container">
-            <div class="recipe-card">
-                <img src="assets/images/recipe_1.png" alt="Egg Manchurian">
-                <h2>Egg Manchurian</h2>
-                <p>Appetizer</p>
-                <p>Time Needs: 30 Mins</p>
-                <button (click)="viewFullRecipe('Egg Manchurian')">View Full Recipe</button>
+            <div class="recipe-card" *ngFor="let recipe of recipes; let i = index">
+              <img [src]="getRecipeImage(i + 1)" [alt]="recipe.name">
+              <h2>{{ recipe.name }}</h2>
+              <button (click)="viewFullRecipe(recipe)">View Full Recipe</button>
             </div>
-            <div class="recipe-card">
-                <img src="assets/images/recipe_2.png" alt="Pure Vegetable Bowl">
-                <h2>Pure Vegetable Bowl</h2>
-                <p>Appetizer</p>
-                <p>Time Needs: 30 Mins</p>
-                <button (click)="viewFullRecipe('Pure Vegetable Bowl')">View Full Recipe</button>
+          </div>
+          
+          
+          <!-- Recipe Details Modal -->
+          <div *ngIf="showRecipeDetails" class="recipe-details-modal">
+            <div class="modal-content">
+              <span class="close" (click)="closeRecipeDetails()">&times;</span>
+              <h2>{{selectedRecipe.name}}</h2>
+              <h3>Ingredients:</h3>
+              <ul>
+                <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</li>
+              </ul>
+              <h3>Instructions:</h3>
+              <ol>
+                <li *ngFor="let instruction of selectedRecipe.instructions">{{ instruction }}</li>
+              </ol>
             </div>
-            <div class="recipe-card">
-                <img src="assets/images/recipe_3.png" alt="Egg Masala Ramen">
-                <h2>Egg Masala Ramen</h2>
-                <p>Appetizer</p>
-                <p>Time Needs: 30 Mins</p>
-                <button (click)="viewFullRecipe('Egg Masala Ramen')">View Full Recipe</button>
-            </div>
-        </div>
-    </main>
-    
-
-    <!-- Recipe Cards HTML -->
-    <!-- Modal for Full Recipe -->
-    <div *ngIf="fullRecipe" class="modal">
-        <div class="modal-content">
-            <span class="close" (click)="closeFullRecipe()">&times;</span>
-            <h2>{{ fullRecipe.name }}</h2>
-            <p>{{ fullRecipe.description }}</p>
-            
-            <!-- Ingredients -->
-            <h3>Ingredients:</h3>
-            <ul>
-                <li *ngFor="let ingredient of fullRecipe.ingredients">{{ ingredient }}</li>
-            </ul>
-            
-            <!-- Instructions -->
-            <h3>Instructions:</h3>
-            <ol>
-                <li *ngFor="let instruction of fullRecipe.instructions">{{ instruction }}</li>
-            </ol>
-        </div>
-    </div>
+          </div>
+          
+   </main>
+ 
 </body>
 </html>

@@ -7,37 +7,36 @@ import { Recipe } from '../_models/recipe';
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent {
-  fullRecipe: { name: string, description: string, ingredients: string[], instructions: string[] } | null = null;
+  showRecipeDetails: boolean = false;
+  selectedRecipe: any = null;
 
-  viewFullRecipe(recipeName: string) {
-    // Sample data for demonstration
-    if (recipeName === 'Egg Manchurian') {
-      this.fullRecipe = {
-        name: 'Egg Manchurian',
-        description: 'Delicious Egg Manchurian recipe.',
-        ingredients: ['Egg', 'Soy Sauce', 'Garlic'],
-        instructions: ['Step 1: Boil eggs', 'Step 2: Prepare sauce', 'Step 3: Mix eggs with sauce']
-      };
-    } else if (recipeName === 'Pure Vegetable Bowl') {
-      this.fullRecipe = {
-        name: 'Pure Vegetable Bowl',
-        description: 'Healthy and nutritious vegetable bowl recipe.',
-        ingredients: ['Carrot', 'Broccoli', 'Bell Pepper'],
-        instructions: ['Step 1: Chop vegetables', 'Step 2: Stir fry vegetables', 'Step 3: Serve with sauce']
-      };
-    } else if (recipeName === 'Egg Masala Ramen') {
-      this.fullRecipe = {
-        name: 'Egg Masala Ramen',
-        description: 'Spicy and flavorful Egg Masala Ramen recipe.',
-        ingredients: ['Ramen Noodles', 'Egg', 'Masala'],
-        instructions: ['Step 1: Cook noodles', 'Step 2: Prepare masala', 'Step 3: Mix noodles with masala']
-      };
-    } else {
-      console.error('Recipe not found:', recipeName);
+  recipes = [
+    {
+      name: 'Egg Manchurian',
+      ingredients: ['Eggs', 'Soy sauce', 'Cornstarch', 'Ginger', 'Garlic', 'Vegetables'],
+      instructions: ['Boil eggs', 'Prepare sauce', 'Cook vegetables', 'Combine all ingredients']
+    },
+    {
+      name: 'Pure Vegetable Bowl',
+      ingredients: ['Assorted vegetables', 'Rice', 'Soy sauce', 'Sesame oil'],
+      instructions: ['Cook rice', 'Chop vegetables', 'Stir-fry vegetables', 'Combine with rice']
+    },
+    {
+      name: 'Egg Masala Ramen',
+      ingredients: ['Ramen noodles', 'Eggs', 'Masala spices', 'Vegetables', 'Broth'],
+      instructions: ['Boil noodles', 'Prepare masala spice mix', 'Cook vegetables and eggs in broth', 'Combine all ingredients']
     }
+  ];
+
+  viewFullRecipe(recipe: any) {
+    this.selectedRecipe = recipe;
+    this.showRecipeDetails = true;
   }
 
-  closeFullRecipe() {
-    this.fullRecipe = null;
+  closeRecipeDetails() {
+    this.showRecipeDetails = false;
+  }
+  getRecipeImage(index: number): string {
+    return `assets/images/recipe_${index}.png`;
   }
 }
