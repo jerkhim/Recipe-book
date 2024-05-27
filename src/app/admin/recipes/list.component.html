@@ -1,25 +1,23 @@
 <h1>Recipes</h1>
-<p>All recipes:</p>
+<p>All recipes from secure (admin only) API endpoint:</p>
 <a routerLink="add" class="btn btn-sm btn-success mb-2">Create Recipe</a>
 <table class="table table-striped">
     <thead>
         <tr>
             <th style="width:30%">Name</th>
             <th style="width:30%">Description</th>
-            <th style="width:20%">Ingredients</th>
-            <th style="width:30%">Instructions</th>
-            <th style="width:30%">Action</th>
-            <th style="width:10%"></th>
+            <th style="width:30%">Ingredients</th>
+            <th style="width:10%">Actions</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let recipe of recipes">
-            <td>{{recipe.name}}</td>
-            <td>{{recipe.description}}</td>
-            <td>{{recipe.ingredients}}</td>
-            <td>{{recipe.instructions}}</td>
+            <td>{{ recipe.name }}</td>
+            <td>{{ recipe.description }}</td>
+            <td>{{ recipe.ingredients.join(', ') }}</td>
             <td style="white-space: nowrap">
-                <a routerLink="edit/{{recipe.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <a routerLink="edit/{{ recipe.id }}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button class="btn btn-sm btn-danger" (click)="deleteRecipe(recipe.id)">Delete</button>
             </td>
         </tr>
         <tr *ngIf="!recipes">

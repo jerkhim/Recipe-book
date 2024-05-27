@@ -14,21 +14,25 @@ export class RecipeComponent {
   recipes = [
     {
       name: 'Egg Manchurian',
+      description: 'A delicious Indo-Chinese dish made with eggs and vegetables in a flavorful sauce.',
       ingredients: ['Eggs', 'Soy sauce', 'Cornstarch', 'Ginger', 'Garlic', 'Vegetables'],
       instructions: ['Boil eggs', 'Prepare sauce', 'Cook vegetables', 'Combine all ingredients']
     },
     {
       name: 'Pure Vegetable',
+      description: 'A healthy and nutritious dish featuring assorted vegetables stir-fried with rice.',
       ingredients: ['Assorted vegetables', 'Rice', 'Soy sauce', 'Sesame oil'],
       instructions: ['Cook rice', 'Chop vegetables', 'Stir-fry vegetables', 'Combine with rice']
     },
     {
       name: 'Egg Masala Ramen',
+      description: 'A spicy and aromatic noodle soup featuring eggs, masala spices, and fresh vegetables.',
       ingredients: ['Ramen noodles', 'Eggs', 'Masala spices', 'Vegetables', 'Broth'],
       instructions: ['Boil noodles', 'Prepare masala spice mix', 'Cook vegetables and eggs in broth', 'Combine all ingredients']
     },
     {
       name: 'Pumpkin Soup',
+      description: 'A creamy and comforting soup made with fresh pumpkin, aromatic spices, and coconut milk.',
       ingredients: ['Pumpkin', 'Vegetable broth', 'Onion', 'Garlic', 'Coconut milk', 'Salt', 'Pepper', 'Nutmeg'],
       instructions: [
         'Peel and chop the pumpkin, onion, and garlic.',
@@ -39,20 +43,23 @@ export class RecipeComponent {
         'Stir in the coconut milk and season with salt, pepper, and nutmeg to taste.',
         'Simmer for an additional 5 minutes, then serve hot.'
       ]
+    },
+    {
+      name: 'Egg Masala Ramen',
+      description: 'A spicy and aromatic noodle soup featuring eggs, masala spices, and fresh vegetables.',
+      ingredients: ['Ramen noodles', 'Eggs', 'Masala spices', 'Vegetables', 'Broth'],
+      instructions: ['Boil noodles', 'Prepare masala spice mix', 'Cook vegetables and eggs in broth', 'Combine all ingredients']
+    },
+    {
+      name: 'Egg Masala Ramen',
+      description: 'A spicy and aromatic noodle soup featuring eggs, masala spices, and fresh vegetables.',
+      ingredients: ['Ramen noodles', 'Eggs', 'Masala spices', 'Vegetables', 'Broth'],
+      instructions: ['Boil noodles', 'Prepare masala spice mix', 'Cook vegetables and eggs in broth', 'Combine all ingredients']
     }
-    ,
-    {
-      name: 'Egg Masala Ramen',
-      ingredients: ['Ramen noodles', 'Eggs', 'Masala spices', 'Vegetables', 'Broth'],
-      instructions: ['Boil noodles', 'Prepare masala spice mix', 'Cook vegetables and eggs in broth', 'Combine all ingredients']
-    },
-    {
-      name: 'Egg Masala Ramen',
-      ingredients: ['Ramen noodles', 'Eggs', 'Masala spices', 'Vegetables', 'Broth'],
-      instructions: ['Boil noodles', 'Prepare masala spice mix', 'Cook vegetables and eggs in broth', 'Combine all ingredients']
-    },
+];
+
     
-  ];
+
 
   viewFullRecipe(recipe: any, index: number) {
     this.selectedRecipe = recipe;

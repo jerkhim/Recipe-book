@@ -17,7 +17,7 @@
             <td>{{account.role}}</td>
             <td style="white-space: nowrap">
                 <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
-               
+                <button class="btn btn-sm btn-danger" (click)="deleteRecipe(recipe.id)">Delete</button>
             </td>
         </tr>
         <tr *ngIf="!accounts">

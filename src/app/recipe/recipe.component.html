@@ -29,6 +29,9 @@
                 <button class="close" (click)="closeRecipeDetails()">Close</button>
                 <h2>{{selectedRecipe.name}}</h2>
                 <img [src]="selectedRecipeImage" [alt]="selectedRecipe.name" class="recipe-image">
+                <h3>Descriptions:</h3>
+                <p>{{selectedRecipe.description}}</p>
+               
                 <h3>Ingredients:</h3>
                 <ul>
                     <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</li>
@@ -39,6 +42,7 @@
                 </ol>
             </div>
         </div>
+        
     </main>
 </body>
 </html>

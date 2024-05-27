@@ -1,28 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipeService } from '@app/_services'; // Import RecipeService
+import { first } from 'rxjs/operators';
 
+import { RecipeService } from '@app/_services';
+import { Recipe } from '@app/_models';
 
-@Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html'
-})
+@Component({ templateUrl: 'list.component.html' })
 export class ListComponent implements OnInit {
-  recipes: any[] = []; // Define the recipes property
+    recipes: Recipe[];
 
-  constructor(private recipeService: RecipeService) { } // Inject RecipeService
+    constructor(private recipeService: RecipeService) {}
 
-  ngOnInit(): void {
-    this.loadRecipes(); // Call loadRecipes method on component initialization
-  }
+    ngOnInit() {
+        this.recipeService.getAll()
+            .pipe(first())
+            .subscribe(recipes => this.recipes = recipes);
+    }
 
-  loadRecipes() {
-    this.recipeService.getAll().subscribe(
-      (data) => {
-        this.recipes = data; // Assign the fetched recipes to the recipes property
-      },
-      (error) => {
-        console.log('Error fetching recipes:', error);
-      }
-    );
-  }
+    deleteRecipe(id: string) {
+        const index = this.recipes.findIndex(x => x.id === id);
+        if (index !== -1) {
+            this.recipes.splice(index, 1);
+            this.recipeService.deleteRecipe(id)
+                .pipe(first())
+                .subscribe(
+                    () => {},
+                    error => {
+                        // Handle error
+                        console.error('Error deleting recipe:', error);
+                        // Restore the recipe if deletion fails
+                        this.recipes.splice(index, 0, this.recipes.find(x => x.id === id));
+                    }
+                );
+        }
+    }
 }

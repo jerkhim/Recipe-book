@@ -6,7 +6,7 @@ import { LayoutComponent } from './layout.component';
 import { OverviewComponent } from './overview.component';
 
 const accountsModule = () => import('./accounts/accounts.module').then(x => x.AccountsModule);
-const recipesModule = () => import('./recipes/recipes.module').then(x => x.RecipesModule);
+const recipesModule = () => import('./recipes/recipes.module').then(x => x.recipesModule);
 
 const routes: Routes = [
     { path: '', component: SubNavComponent, outlet: 'subnav' },

@@ -6,14 +6,14 @@ import { AddEditComponent } from './add-edit.component';
 import { ListComponent } from './list.component';
 
 @NgModule({
-  declarations: [
-    AddEditComponent,
-    ListComponent
-  ],
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RecipesRoutingModule
+      CommonModule,
+      ReactiveFormsModule,
+      RecipesRoutingModule
+  ],
+  declarations: [
+      ListComponent,
+      AddEditComponent
   ]
 })
-export class RecipesModule { }
+export class recipesModule { }
