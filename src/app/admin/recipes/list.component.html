@@ -4,9 +4,11 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th style="width:30%">Name</th>
-            <th style="width:30%">Description</th>
-            <th style="width:30%">Ingredients</th>
+            <th style="width:25%">Name</th>
+            <th style="width:25%">Description</th>
+            <th style="width:25%">Ingredients</th>
+            <th style="width:25%">Instructions</th>
+            <th style="width:15%">Image</th>
             <th style="width:10%">Actions</th>
         </tr>
     </thead>
@@ -14,14 +16,16 @@
         <tr *ngFor="let recipe of recipes">
             <td>{{ recipe.name }}</td>
             <td>{{ recipe.description }}</td>
-            <td>{{ recipe.ingredients.join(', ') }}</td>
+            <td>{{ recipe.ingredients }}</td>
+            <td>{{ recipe.instructoi }}</td>
+            <td><img [src]="'assets/images/' + recipe.imageUrl" alt="{{ recipe.name }}" style="max-width: 100px; max-height: 100px;"></td>
             <td style="white-space: nowrap">
                 <a routerLink="edit/{{ recipe.id }}" class="btn btn-sm btn-primary mr-1">Edit</a>
                 <button class="btn btn-sm btn-danger" (click)="deleteRecipe(recipe.id)">Delete</button>
             </td>
         </tr>
         <tr *ngIf="!recipes">
-            <td colspan="4" class="text-center">
+            <td colspan="5" class="text-center">
                 <span class="spinner-border spinner-border-lg align-center"></span>
             </td>
         </tr>

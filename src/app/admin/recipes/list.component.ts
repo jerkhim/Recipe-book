@@ -11,24 +11,38 @@ export class ListComponent implements OnInit {
     constructor(private recipeService: RecipeService) {}
 
     ngOnInit() {
+        this.loadRecipes();
+    }
+
+    loadRecipes() {
         this.recipeService.getAll()
             .pipe(first())
-            .subscribe(recipes => this.recipes = recipes);
+            .subscribe(
+                recipes => {
+                    this.recipes = recipes;
+                },
+                error => {
+                    console.error('Error loading recipes:', error);
+                }
+            );
     }
 
     deleteRecipe(id: string) {
         const index = this.recipes.findIndex(x => x.id === id);
         if (index !== -1) {
+            const deletedRecipe = this.recipes[index];
             this.recipes.splice(index, 1);
             this.recipeService.deleteRecipe(id)
                 .pipe(first())
                 .subscribe(
-                    () => {},
+                    () => {
+                        console.log('Recipe deleted successfully');
+                    },
                     error => {
                         // Handle error
                         console.error('Error deleting recipe:', error);
                         // Restore the recipe if deletion fails
-                        this.recipes.splice(index, 0, this.recipes.find(x => x.id === id));
+                        this.recipes.splice(index, 0, deletedRecipe);
                     }
                 );
         }

@@ -174,3 +174,36 @@ ul, ol {
   padding-left: 20px;
   font-family: 'Roboto', sans-serif; /* Apply Roboto font to lists */
 }
+/* CSS for the search bar */
+.search-bar {
+  margin-top: 20px;
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f8f8f8;
+  outline: none;
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.search-bar input[type="text"]:focus {
+  border-color: #007bff; /* Change border color on focus */
+}
+
+/* Placeholder style */
+.search-bar input[type="text"]::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+/* Icon style */
+.search-bar i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #666;
+}

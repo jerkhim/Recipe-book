@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, catchError, finalize } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
-import { Recipe } from '../_models/recipe';
+import { environment } from '@environments/environment';
+import { Recipe } from '@app/_models';
 import { throwError } from 'rxjs';
 
 const baseUrl = `${environment.apiUrl}/recipes`;
@@ -26,46 +26,33 @@ export class RecipeService {
     return this.recipeSubject.value;
   }
 
-  getAll(): Observable<Recipe[]> {
+  getAll() {
     return this.http.get<Recipe[]>(baseUrl);
   }
 
-  getById(id: string): Observable<Recipe> {
+  getById(id: string) {
     return this.http.get<Recipe>(`${baseUrl}/${id}`);
   }
 
-  createRecipe(params): Observable<Recipe> {
+  createRecipe(params) {
     return this.http.post<Recipe>(baseUrl, params);
   }
 
-  updateRecipe(id: string, params): Observable<Recipe> {
-    return this.http.put<Recipe>(`${baseUrl}/${id}`, params)
-      .pipe(
-        map((recipe: any) => {
-          // Update the current recipe if it was updated
-          if (this.recipeValue && recipe.id === this.recipeValue.id) {
-            // Publish updated recipe to subscribers
-            recipe = { ...this.recipeValue, ...recipe };
-            this.recipeSubject.next(recipe);
-          }
-          return recipe;
-        }),
-        catchError((error) => {
-          return throwError(error);
-        })
-      );
+  updateRecipe(id, params) {
+    return this.http.put(`${baseUrl}/${id}`, params)
+        .pipe(map((recipe: any) => {
+            // update the current account if it was updated
+            if (recipe.id === this.recipeValue.id) {
+                // publish updated account to subscribers
+                recipe = { ...this.recipeValue, ...recipe };
+                this.recipeSubject.next(recipe);
+            }
+            return recipe;
+        }));
   }
 
-  deleteRecipe(id: string): Observable<void> {
-    return this.http.delete<void>(`${baseUrl}/${id}`)
-      .pipe(
-        finalize(() => {
-          // Auto logout if the logged in account was deleted
-          if (id === this.recipeValue.id) {
-            this.logout();
-          }
-        })
-      );
+  deleteRecipe(id: string) {
+    return this.http.delete(`${baseUrl}/${id}`)
   }
 
   private logout() {

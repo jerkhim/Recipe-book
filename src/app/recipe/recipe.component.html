@@ -11,17 +11,27 @@
         <div class="overlay">
             <div class="header-content">
                 <h1>Chicken Recipes</h1>
+                <!-- Search Bar -->
+                <!-- <input type="text" placeholder="Search Recipe" [(ngModel)]="searchTerm" class="search-bar"> -->
             </div>
         </div>
     </header>
     <main>
         <div class="recipe-container">
-            <div class="recipe-card" *ngFor="let recipe of recipes; let i = index">
-                <img [src]="getRecipeImage(i + 1)" [alt]="recipe.name">
+            <div class="recipe-card" *ngFor="let recipe of recipes">
+                <img [src]="'assets/images/' + recipe.imageUrl" [alt]="recipe.name">
                 <h2>{{ recipe.name }}</h2>
                 <button (click)="viewFullRecipe(recipe, i + 1)">View Full Recipe</button>
             </div>
         </div>
+        
+        <!-- <div class="recipe-container">
+            <div class="recipe-card" *ngFor="let recipe of filteredRecipes(); let i = index">
+                <img [src]="getRecipeImage(i + 1)" [alt]="recipe.name">
+                <h2>{{ recipe.name }}</h2>
+                <button (click)="viewFullRecipe(recipe, i + 1)">View Full Recipe</button>
+            </div>
+        </div> -->
         
         <!-- Recipe Details Modal -->
         <div *ngIf="showRecipeDetails" class="recipe-details-modal">
@@ -29,9 +39,6 @@
                 <button class="close" (click)="closeRecipeDetails()">Close</button>
                 <h2>{{selectedRecipe.name}}</h2>
                 <img [src]="selectedRecipeImage" [alt]="selectedRecipe.name" class="recipe-image">
-                <h3>Descriptions:</h3>
-                <p>{{selectedRecipe.description}}</p>
-               
                 <h3>Ingredients:</h3>
                 <ul>
                     <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</li>
@@ -40,9 +47,9 @@
                 <ol>
                     <li *ngFor="let instruction of selectedRecipe.instructions">{{ instruction }}</li>
                 </ol>
+                
             </div>
         </div>
-        
     </main>
 </body>
 </html>
