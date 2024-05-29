@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RecipeComponent } from './recipe';
 import { AboutUsComponent } from './about-us';
+import { RateUsComponent } from './rateus/rateus.component';
 
 
 
@@ -42,6 +43,7 @@ import { AboutUsModule } from './about-us/about-us.module';
         AlertComponent,
         HomeComponent,
         RecipeComponent,
+        RateUsComponent
         
        
     ],
@@ -50,7 +52,7 @@ import { AboutUsModule } from './about-us/about-us.module';
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         // provider used to create fake backend
-       //fakeBackendProvider
+       fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })

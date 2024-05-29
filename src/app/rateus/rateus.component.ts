@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-interface RatingFormData {
-  rating: string;
-  name: string;
-  feedback: string;
-}
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-rateus',
@@ -12,58 +7,34 @@ interface RatingFormData {
   styleUrls: ['./rateus.component.css']
 })
 export class RateUsComponent {
-  formData: RatingFormData = {
-    rating: '',
-    name: '',
-    feedback: ''
-  };
+  ratingForm: FormGroup;
   ratingMessage: string = '';
   userFeedback: string = '';
 
-  submitRatingForm(event: Event) {
-    event.preventDefault(); // Prevent default form submission behavior
+  constructor(private fb: FormBuilder) {
+    this.ratingForm = this.fb.group({
+      rating: ['', Validators.required],
+      name: ['', Validators.required],
+      feedback: ['', Validators.required]
+    });
+  }
 
-    // Get form elements
-    const form = document.getElementById('ratingForm') as HTMLFormElement;
-    const ratingInputs = form.querySelectorAll('input[name="rating"]:checked') as NodeListOf<HTMLInputElement>;
-    const nameInput = form.querySelector('#name') as HTMLInputElement;
-    const feedbackInput = form.querySelector('#feedback') as HTMLTextAreaElement;
-
-    // Initialize rating data object
-    this.formData = {
-      rating: '',
-      name: nameInput.value.trim(),
-      feedback: feedbackInput.value.trim()
-    };
-
-    // Retrieve selected rating
-    if (ratingInputs.length > 0) {
-      this.formData.rating = ratingInputs[0].value;
-    }
-
-    // Validate form inputs
-    if (!this.formData.rating || !this.formData.name || !this.formData.feedback) {
-      this.displayRatingMessage('Please fill in all fields.', 'error');
+  onSubmit(): void {
+    if (this.ratingForm.invalid) {
+      this.ratingMessage = 'Please fill out all fields.';
       return;
     }
 
-    // Display success message
-    this.displayRatingMessage('Thank you for your feedback!', 'success');
+    const { rating, name, feedback } = this.ratingForm.value;
 
-    // Display user feedback
     this.userFeedback = `
-      <h2>User Feedback:</h2>
-      <p><strong>Name:</strong> ${this.formData.name}</p>
-      <p><strong>Rating:</strong> ${this.formData.rating}</p>
-      <p><strong>Feedback:</strong> ${this.formData.feedback}</p>
+      <h2>Thank you for your feedback!</h2>
+      <p><strong>Rating:</strong> ${rating} star(s)</p>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Feedback:</strong> ${feedback}</p>
     `;
 
-    // Clear form inputs
-    form.reset();
-  }
-
-  displayRatingMessage(message: string, messageType: 'success' | 'error') {
-    this.ratingMessage = message;
-    // You can handle the styling in your CSS file
+    this.ratingForm.reset();
+    this.ratingMessage = '';
   }
 }
