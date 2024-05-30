@@ -24,7 +24,7 @@ export class AddEditComponent implements OnInit {
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
         this.isAddMode = !this.id;
-
+    
         this.form = this.formBuilder.group({
             name: ['', Validators.required],
             description: ['', Validators.required],
@@ -32,13 +32,22 @@ export class AddEditComponent implements OnInit {
             instructions: ['', Validators.required],
             imageUrl: ['', Validators.required]
         });
-
+    
         if (!this.isAddMode) {
             this.recipeService.getById(this.id)
                 .pipe(first())
-                .subscribe(recipe => this.form.patchValue(recipe));
+                .subscribe(
+                    recipe => {
+                        console.log('Received recipe:', recipe); // Log the received recipe
+                        this.form.patchValue(recipe);
+                    },
+                    error => {
+                        console.error('Error fetching recipe:', error);
+                    }
+                );
         }
     }
+    
 
     // convenience getter for easy access to form fields
     get f() { return this.form.controls; }
@@ -46,8 +55,6 @@ export class AddEditComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
-        // reset alerts on submit
-        this.alertService.clear();
 
         // stop here if form is invalid
         if (this.form.invalid) {

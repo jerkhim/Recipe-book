@@ -18,10 +18,10 @@
     </header>
     <main>
         <div class="recipe-container">
-            <div class="recipe-card" *ngFor="let recipe of recipes">
-                <img [src]="'assets/images/' + recipe.imageUrl" [alt]="recipe.name">
+            <div class="recipe-card" *ngFor="let recipe of recipes; let i = index">
+                <img [src]="getRecipeImage(i)" [alt]="recipe.name">
                 <h2>{{ recipe.name }}</h2>
-                <button (click)="viewFullRecipe(recipe, i + 1)">View Full Recipe</button>
+                <button (click)="viewFullRecipe(recipe, i)">View Recipe</button>
             </div>
         </div>
         
@@ -34,22 +34,22 @@
         </div> -->
         
         <!-- Recipe Details Modal -->
-        <div *ngIf="showRecipeDetails" class="recipe-details-modal">
-            <div class="modal-content">
-                <button class="close" (click)="closeRecipeDetails()">Close</button>
-                <h2>{{selectedRecipe.name}}</h2>
-                <img [src]="selectedRecipeImage" [alt]="selectedRecipe.name" class="recipe-image">
-                <h3>Ingredients:</h3>
-                <ul>
-                    <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</li>
-                </ul>
-                <h3>Instructions:</h3>
-                <ol>
-                    <li *ngFor="let instruction of selectedRecipe.instructions">{{ instruction }}</li>
-                </ol>
-                
-            </div>
-        </div>
+       <!-- Recipe Details Modal -->
+<div *ngIf="showRecipeDetails" class="recipe-details-modal">
+    <div class="modal-content">
+        <button class="close" (click)="closeRecipeDetails()">Close</button>
+        <img [src]="selectedRecipeImage" [alt]="selectedRecipe.name" class="recipe-image">
+        <h3>Recipe:</h3>
+        <p>{{ selectedRecipe.name }}</p>
+        <h3>Description:</h3>
+        <p>{{ selectedRecipe.description }}</p>
+        <h3>Ingredients:</h3>
+        <p>{{ selectedRecipe.ingredients }}</p>
+        <h3>Instructions:</h3>
+        <p>{{ selectedRecipe.instructions}}</p>
+    </div>
+</div>
+
     </main>
 </body>
 </html>

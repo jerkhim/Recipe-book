@@ -44,7 +44,7 @@ export class RecipeComponent {
   }
 
   getRecipeImage(index: number): string {
-    return `assets/images/recipe_${index}.png`;
+    return 'assets/images/' + this.recipes[index].imageUrl;
   }
   
   
