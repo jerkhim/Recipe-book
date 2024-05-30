@@ -11,12 +11,12 @@
         <div class="overlay">
             <div class="header-content">
                 <h1>Chicken Recipes</h1>
-                <!-- Search Bar -->
-                <!-- <input type="text" placeholder="Search Recipe" [(ngModel)]="searchTerm" class="search-bar"> -->
+                <input type="text" [(ngModel)]="searchTerm" placeholder="Search recipes...">
             </div>
         </div>
     </header>
     <main>
+        
         <div class="recipe-container">
             <div class="recipe-card" *ngFor="let recipe of recipes; let i = index">
                 <img [src]="getRecipeImage(i)" [alt]="recipe.name">
@@ -47,6 +47,8 @@
         <p>{{ selectedRecipe.ingredients }}</p>
         <h3>Instructions:</h3>
         <p>{{ selectedRecipe.instructions}}</p>
+        <!--<p>Test: {{ searchTerm }}</p>-->
+
     </div>
 </div>
 

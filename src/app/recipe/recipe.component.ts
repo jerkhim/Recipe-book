@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Recipe } from '@app/_models';
+import { FormsModule } from '@angular/forms';
 
 import { RecipeService } from '@app/_services';
 
@@ -13,7 +14,8 @@ export class RecipeComponent {
   selectedRecipe: any = null;
   selectedRecipeImage: string = '';
   recipes: Recipe[] = [];
-
+  searchTerm: string = '';
+ 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
@@ -31,8 +33,6 @@ export class RecipeComponent {
     );
   }
 
-
-
   viewFullRecipe(recipe: any, index: number) {
     this.selectedRecipe = recipe;
     this.selectedRecipeImage = this.getRecipeImage(index);
@@ -46,6 +46,14 @@ export class RecipeComponent {
   getRecipeImage(index: number): string {
     return 'assets/images/' + this.recipes[index].imageUrl;
   }
-  
-  
+  filteredRecipes() {
+    if (!this.searchTerm) {
+      return this.recipes;
+    }
+    const term = this.searchTerm.toLowerCase();
+    return this.recipes.filter(recipes => 
+      recipes.name.toLowerCase().includes(term) ||
+      recipes.description.toLowerCase().includes(term)
+    );
+  }
 }
